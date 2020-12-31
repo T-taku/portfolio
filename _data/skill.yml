@@ -1,0 +1,15 @@
+- name: Linux
+  description: サーバー等で使用しました。
+  logo: fab fa-linux
+
+- name: CSS
+  description: Webサイトの作成などで使用しました。
+  logo: fab fa-css3-alt
+
+- name: Vue.js
+  description: Webサイトの作成などで使用しました。
+  logo: fab fa-vuejs
+
+- name: Python
+  description: 現在メインで使用しているプログラミング言語です。
+  logo: fab fa-python

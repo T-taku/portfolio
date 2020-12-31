@@ -1,0 +1,164 @@
+---
+---
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer{
+    background-color: #272727;
+    padding: 4vw 12vw;
+    text-align: center;
+    color:#fff;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+    height: auto;
+} 
+  footer>a{
+    color: #fff !important;
+  }
+
+h1 {
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+h1:before {
+    position: absolute;
+    bottom: -2px;
+    left: calc(50% - 400px);
+    width: 800px;
+    height: 5px;
+    content: '';
+    border-radius: 3px;
+    background: rgb(68, 134, 172);
+  }
+
+.post-content{
+    padding: 30px 11% 50px;
+  }
+
+.content{
+  box-sizing: border-box;
+  position: relative;
+}
+  
+
+  h2 {
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  h2:before {
+    position: absolute;
+    bottom: -2px;
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 5px;
+    content: '';
+    border-radius: 3px;
+    background: rgb(82, 194, 166);
+  }
+
+.inline{
+  display: inline-block;
+  font-size: 80px;
+  padding:  20px;
+}
+
+a{
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+  text-decoration: none;
+}
+
+a::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #31aae2;
+  transition: .3s;
+  transform: translateX(-50%);
+}
+
+a:hover::after{
+  width: 100%;
+}
+
+li{
+  list-style:none;
+}
+
+table{
+  width: 60%;
+  border-spacing: 0;
+}
+
+table th{
+  border-bottom: solid 2px rgb(68, 134, 172);
+  padding: 10px 0;
+}
+
+table td{
+  border-bottom: solid 2px #ddd;
+  text-align: center;
+  padding: 10px 0;
+}
+
+h3{
+  color: #e2a431;
+}
+
+.inline-2{
+  display: inline-block;
+  padding:  20px;
+}
+
+.irai{
+  width: 100%;
+  height: auto;
+  padding: 4vw 12vw;
+  box-sizing: border-box;
+  color: #fff;
+  background: linear-gradient(-135deg, #92e472, #419cd8);
+  text-align: center;
+}
+
+.irai h2{
+  color: #fff!important;
+  text-align: center;
+}
+
+.irai a{
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+  text-decoration: none;
+  color: #fff;
+}
+
+.irai a::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: .3s;
+  transform: translateX(-50%);
+}
+
+.irai a:hover::after{
+  width: 100%;
+}

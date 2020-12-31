@@ -53,5 +53,5 @@ title: TOP
 <br><br>
 <center>
 外部のお仕事のみ書いています。<br>
-<div class="inline-2"><a href="https://sina-chan-d.com"><img src="img/sina.png" alt = "Sina-chan" width= "100"></a></div>
-<div class="inline-2"><a href="https://ja.scratch-wiki.info"><img src="img/Wiki.png" alt = "Japanese Scratch-Wiki" width= "100"></a></div>
+<div class="inline-2"><a href="https://sina-chan-d.com" class="n-a"><img src="img/sina.png" alt = "Sina-chan" width= "100"></a></div>
+<div class="inline-2"><a href="https://ja.scratch-wiki.info" class="n-a"><img src="img/Wiki.png" alt = "Japanese Scratch-Wiki" width= "100"></a></div>

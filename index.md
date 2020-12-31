@@ -42,16 +42,16 @@ title: TOP
 <br><br>
 <center>
 <li>
-<ul><h3>Programing language</h3> Python/CSS/Vue.js</ul>
+<ul><h3>Programing language</h3> Python/CSS/Vue.js/Jekyll/Git/Server</ul>
 <ul><h3>OS</h3> Windows/macOS/Linux</ul>
 <ul><h3>Other skill</h3> Adobe Illustrator</ul>
 </li>
+<img src="https://grass-graph.moshimo.works/images/T-taku.png">
 </center>
 
 ## Works
 <br><br>
 <center>
 外部のお仕事のみ書いています。<br>
-<div class="inline-2"><a href="https://sina-chan-d.com"><img src="img/sina.png" alt = "アイコン" width= "100"></a></div>
-<div class="inline-2"><a href="https://ja.scratch-wiki.info"><img src="img/Wiki.png" alt = "アイコン" width= "100"></a></div>
-</center>
+<div class="inline-2"><a href="https://sina-chan-d.com"><img src="img/sina.png" alt = "Sina-chan" width= "100"></a></div>
+<div class="inline-2"><a href="https://ja.scratch-wiki.info"><img src="img/Wiki.png" alt = "Japanese Scratch-Wiki" width= "100"></a></div>

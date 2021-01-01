@@ -42,10 +42,11 @@ title: TOP
 <br><br>
 <center>
 <li>
-<ul><h3>Programing language</h3> Python/CSS/Vue.js/Jekyll/Git</ul>
-<ul><h3>OS</h3> Windows/macOS/Ubuntu</ul>
-<ul><h3>Other skill</h3> Adobe Illustrator</ul>
+<ul><h3>Programing language</h3> <p class="skills">Python/CSS/Vue.js/Jekyll/Git</p></ul>
+<ul><h3>OS</h3> <p class="skills">Windows/macOS/Ubuntu</p></ul>
+<ul><h3>Other skill</h3> <p class="skills">Adobe Illustrator</p></ul>
 </li>
+<h3>GitHub</h3>
 <img src="https://grass-graph.moshimo.works/images/T-taku.png" class="grass" alt="GitHub">
 </center>
 
@@ -53,5 +54,5 @@ title: TOP
 <br><br>
 <center>
 外部のお仕事のみ書いています。<br>
-<div class="inline-2"><a href="https://sina-chan-d.com" class="n-a"><img src="img/sina.png" alt = "Sina-chan" width= "100"></a></div>
-<div class="inline-2"><a href="https://ja.scratch-wiki.info" class="n-a"><img src="img/Wiki.png" alt = "Japanese Scratch-Wiki" width= "100"></a></div>
+<div class="inline-2"><a href="https://sina-chan-d.com" class="n-a"><img src="img/sina.png" alt = "Sina-chan" class="works"></a></div>
+<div class="inline-2"><a href="https://ja.scratch-wiki.info" class="n-a"><img src="img/Wiki.png" alt = "Japanese Scratch-Wiki" class="works"></a></div>

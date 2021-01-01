@@ -289,7 +289,7 @@ a.btn-flat:hover:before {
   }
    
  .btn-flat-l {
-  display: inline-block;
+  display: inline-block !important;
   padding: 0.3em 1em;
   text-decoration: none;
   color: black;

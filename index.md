@@ -42,8 +42,8 @@ title: TOP
 <br><br>
 <center>
 <li>
-<ul><h3>Programing language</h3> Python/CSS/Vue.js/Jekyll/Git/Server</ul>
-<ul><h3>OS</h3> Windows/macOS/Linux</ul>
+<ul><h3>Programing language</h3> Python/CSS/Vue.js/Jekyll/Git</ul>
+<ul><h3>OS</h3> Windows/macOS/Ubuntu</ul>
 <ul><h3>Other skill</h3> Adobe Illustrator</ul>
 </li>
 <img src="https://grass-graph.moshimo.works/images/T-taku.png">

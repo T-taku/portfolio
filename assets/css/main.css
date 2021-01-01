@@ -305,7 +305,7 @@ a.btn-flat:hover:before {
 
 .btn,
 .btn-flat{
-    display: none;
+    display: none !important;
     }
 
 }

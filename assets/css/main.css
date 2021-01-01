@@ -245,6 +245,10 @@ a.btn-flat:hover:before {
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
 
+.btn-flat-l{
+    display:none;
+}
+
 @media screen and (max-width:980px){
   *{
     font-size: 50px;
@@ -284,22 +288,22 @@ a.btn-flat:hover:before {
     background: rgb(68, 134, 172);
   }
    
- .btn-flat {
+ .btn-flat-l {
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
-  color: #67c5ff;
-  border: solid 2px #67c5ff;
+  color: white;
+  border: solid 2px black;
   border-radius: 3px;
   transition: .4s;
 }
 
-.btn-flat:hover {
+.btn-flat-l:hover {
   background: #67c5ff;
   color: white;
 }
 
-.btn{
+.btn .btn-flat{
     display: none;
     }
 

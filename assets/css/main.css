@@ -131,14 +131,12 @@ h3{
   padding: 4vw 12vw;
   box-sizing: border-box;
   color: #fff;
-  background: linear-gradient(-135deg, #7290e4, #d88a41);
+  background: linear-gradient(-135deg, #1a2a6c, #b21f1f, #fdbb2d);
   text-align: center;
-  font-size: 30px;
 }
 
 .irai h2{
   color: #fff!important;
-  font-size: 40px!important;
   text-align: center;
 }
 

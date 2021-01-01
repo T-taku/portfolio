@@ -246,7 +246,7 @@ a.btn-flat:hover:before {
 }
 
 .btn-flat-l{
-    display:none!important;
+    display:none !important;
 }
 
 @media screen and (max-width:980px){

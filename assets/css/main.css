@@ -239,3 +239,33 @@ a.btn-flat:hover:before {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
+
+@media screen and (max-width:1100px){
+  .post-content{
+    padding: 0px 0px;
+  }
+  
+  .content{
+    box-sizing: border-box;
+    position: relative;
+  }
+  .grass{
+    width:400px;
+    height: auto;
+  }
+  h1 {
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+  }
+  h1:before {
+    position: absolute;
+    bottom: -2px;
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 5px;
+    content: '';
+    border-radius: 3px;
+    background: rgb(68, 134, 172);
+  }
+}

@@ -46,7 +46,7 @@ title: TOP
 <ul><h3>OS</h3> Windows/macOS/Ubuntu</ul>
 <ul><h3>Other skill</h3> Adobe Illustrator</ul>
 </li>
-<img src="https://grass-graph.moshimo.works/images/T-taku.png">
+<img src="https://grass-graph.moshimo.works/images/T-taku.png" class="grass">
 </center>
 
 ## Works

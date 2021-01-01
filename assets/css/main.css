@@ -245,7 +245,7 @@ a.btn-flat:hover:before {
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
 
-@media screen and (max-width:1100px){
+@media screen and (max-width:980px){
   *{
     font-size: 50px;
   }

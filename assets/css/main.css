@@ -300,7 +300,7 @@ a.btn-flat:hover:before {
 }
 
 .btn{
-    content: " ";
+    display: none;
     }
 
 }

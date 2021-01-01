@@ -303,7 +303,8 @@ a.btn-flat:hover:before {
   color: white;
 }
 
-.btn .btn-flat{
+.btn,
+.btn-flat{
     display: none;
     }
 

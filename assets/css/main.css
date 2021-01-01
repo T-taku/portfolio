@@ -250,7 +250,7 @@ a.btn-flat:hover:before {
     font-size: 50px;
   }
   .skills{
-    font-size: 20px;
+    font-size: 50px;
   }
   .works{
     width: 200px;
@@ -287,7 +287,7 @@ a.btn-flat:hover:before {
     *:before,
     *:after {
       -webkit-box-sizing: inherit;
-      box-sizing: inherit;
+      box-sizing: border-box;
     }
 
     html {

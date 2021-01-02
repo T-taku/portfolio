@@ -48,8 +48,7 @@ h1:before {
   position: relative;
 }
   
-
-  h2 {
+h2 {
     position: relative;
     padding: 1rem;
     text-align: center;
@@ -287,7 +286,22 @@ a.btn-flat:hover:before {
     border-radius: 3px;
     background: rgb(68, 134, 172);
   }
-   
+  h2 {
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  h2:before {
+    position: absolute;
+    bottom: -0.5px;
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 5px;
+    content: '';
+    border-radius: 3px;
+    background: rgb(82, 194, 166);
+  }
  .btn-flat-l {
   display: inline-block !important;
   padding: 0.3em 1em;

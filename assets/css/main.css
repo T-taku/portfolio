@@ -254,8 +254,8 @@ a.btn-flat:hover:before {
     font-size: 50px;
   }
   .skills{
-    font-size: 50px;
-  }
+    font-size: auto;
+    }
   .works{
     width: 200px;
     height: auto;

@@ -17,15 +17,21 @@ footer{
     bottom: 0;
     box-sizing: border-box;
     height: auto;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 } 
   footer>a{
     color: #fff !important;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
 h1 {
     position: relative;
     padding: 1rem;
     text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   
 h1:before {
@@ -52,6 +58,8 @@ h2 {
     position: relative;
     padding: 1rem;
     text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   
   h2:before {
@@ -182,6 +190,8 @@ html {
 .btn,
 a.btn,
 button.btn {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.5;
@@ -251,6 +261,8 @@ a.btn-flat:hover:before {
 @media screen and (max-width:980px){
   *{
     font-size: 50px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   .skills{
     font-size: auto;

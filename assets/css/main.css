@@ -260,7 +260,6 @@ a.btn-flat:hover:before {
 
 @media screen and (max-width:980px){
   *{
-    font-size: 50px;
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Montserrat', sans-serif;
   }

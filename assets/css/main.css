@@ -316,9 +316,6 @@ a.btn-flat:hover:before {
   background: black;
   color: white;
 }
-.irai{
-    word-break: keep-all;
-    }
 .btn,
 .btn-flat{
     display: none !important;

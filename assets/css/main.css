@@ -274,7 +274,8 @@ a.btn-flat:hover:before {
     height: auto;
   }
   .post-content{
-    padding: 30px 11% 50px;
+    /*padding: 30px 11% 50px;*/
+      padding: 0;
   }
   .content{
     box-sizing: border-box;

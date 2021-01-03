@@ -19,6 +19,7 @@ footer{
     height: auto;
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Montserrat', sans-serif;
+    position: absolute;
 } 
   footer>a{
     color: #fff !important;
@@ -265,7 +266,6 @@ a.btn-flat:hover:before {
     max-width: auto;
   }
   p {
-      font-size: auto;
       font-family: 'Noto Sans JP', sans-serif;
       font-family: 'Montserrat', sans-serif;
     }   
@@ -322,11 +322,7 @@ a.btn-flat:hover:before {
     content: '';
     border-radius: 3px;
     background: rgb(82, 194, 166);
-  }
- 
-  h3{
-      font-size: 40px;
-    }
+   }
     
  .btn-flat-l {
   display: inline-block !important;

@@ -307,7 +307,7 @@ a.btn-flat:hover:before {
   }
   h2 {
     position: relative;
-    padding: 5px;
+    padding: 1rem;
     text-align: center;
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Montserrat', sans-serif;

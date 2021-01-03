@@ -263,6 +263,9 @@ a.btn-flat:hover:before {
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Montserrat', sans-serif;
   }
+  p {
+      font-size: 100%;
+    }   
   .skills{
     font-size: auto;
     }

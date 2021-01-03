@@ -262,6 +262,7 @@ a.btn-flat:hover:before {
   *{
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Montserrat', sans-serif;
+    max-width: auto;
   }
   p {
       font-size: 32px;
@@ -316,6 +317,11 @@ a.btn-flat:hover:before {
     border-radius: 3px;
     background: rgb(82, 194, 166);
   }
+ 
+  h3{
+      font-size: 40px;
+    }
+    
  .btn-flat-l {
   display: inline-block !important;
   padding: 0.3em 1em;

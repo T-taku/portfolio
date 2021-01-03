@@ -263,6 +263,10 @@ a.btn-flat:hover:before {
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Montserrat', sans-serif;
   }
+  
+  body{
+      padding-bottom: 380px;
+    }
   p {
       font-size: 100%;
     }   
@@ -274,8 +278,7 @@ a.btn-flat:hover:before {
     height: auto;
   }
   .post-content{
-    /*padding: 30px 11% 50px;*/
-      padding: 0;
+    padding: 30px 11% 50px;
   }
   .content{
     box-sizing: border-box;

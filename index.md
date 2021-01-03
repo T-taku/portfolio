@@ -20,7 +20,7 @@ title: TOP
 </center>
 
 ## Who am I
-<br><br>
+<br>
 <center>
 <table>
   <tr>
@@ -39,7 +39,7 @@ title: TOP
 </center>
 
 ## Skill
-<br><br>
+<br>
 <center>
 <li>
 <ul><h3>Programing language</h3> <p class="skills">Python/CSS/Vue.js/Jekyll/Git</p></ul>
@@ -51,7 +51,7 @@ title: TOP
 </center>
 
 ## Works
-<br><br>
+<br>
 <center>
 外部のお仕事のみ書いています。<br>
 <div class="inline-2"><a href="https://sina-chan-d.com" class="n-a"><img src="img/sina.png" alt = "Sina-chan" class="works"></a></div>

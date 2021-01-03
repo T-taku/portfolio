@@ -265,7 +265,9 @@ a.btn-flat:hover:before {
     max-width: auto;
   }
   p {
-      font-size: 32px;
+      font-size: auto;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }   
   .skills{
     font-size: auto;
@@ -290,6 +292,8 @@ a.btn-flat:hover:before {
     position: relative;
     padding: 1rem;
     text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   h1:before {
     position: absolute;
@@ -303,8 +307,10 @@ a.btn-flat:hover:before {
   }
   h2 {
     position: relative;
-    padding: 1rem;
+    padding: 5px;
     text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   
   h2:before {

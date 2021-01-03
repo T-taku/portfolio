@@ -19,7 +19,6 @@ footer{
     height: auto;
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Montserrat', sans-serif;
-    position: absolute;
 } 
   footer>a{
     color: #fff !important;

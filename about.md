@@ -22,7 +22,7 @@ permalink: /about/
       <h2>Discord Botの開発/Pythonを始める(厳密には2018年も)</h2>
       <p>初めてPythonを触るきっかけになったのは、Discord Botでした。</p>
     </dd>
-  　<dt>2020年 - 4月〜6月</dt>
+  　<dt>2020年 - 4月</dt>
     <dd>
       <h2>暇つぶしでDiscord Botの作成を再開</h2>
       <p>導入サーバーが20サーバーくらいだったものが、100サーバー以上に導入されることとなりました。</p>

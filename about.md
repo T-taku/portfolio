@@ -20,7 +20,7 @@ permalink: /about/
     <dt>2019年</dt>
     <dd>
       <h2>Discord Botの開発/Pythonを始める(厳密には2018年も)</h2>
-      <p>初めてPythonを触るきっかけになったのは、Discord Botでした。/<a href="https://ja.scratch-wiki.info">Japanese Scratch-Wiki</a>の管理者に就任</p>
+      <p>初めてPythonを触るきっかけになったのは、Discord Botでした。</p>
     </dd>
   　<dt>2020年 - 4月〜6月</dt>
     <dd>

@@ -47,7 +47,7 @@ title: TOP
 <ul><h3>Other skill</h3> <p class="skills">Adobe Illustrator</p></ul>
 </li>
 <h3>GitHub</h3>
-<img src="https://grass-graph.moshimo.works/images/T-taku.png" class="grass" alt="GitHub">
+<img src="https://github-profile-trophy.vercel.app/?username=T-taku&theme=darkhub" class="grass" alt="GitHub">
 </center>
 
 ## Works

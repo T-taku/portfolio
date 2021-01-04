@@ -32,6 +32,9 @@ permalink: /about/
       <h2>様々なことが起きる</h2>
       <p><a href="https://littlelindo.jp">project Little Lindo</a>に所属する。Webのお手伝いなどを行う。/ポートフォリオを大晦日の6時間で仕上げる。</p>
     </dd>
-  
+ </dl>
+  <br>
+  <center>
   <a href="https://t-taku.app" class="btn btn-flat"><span>TOP</span></a>
   <a href="https://t-taku.app" class="btn-flat-l">TOP</a>
+</center>

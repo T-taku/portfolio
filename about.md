@@ -20,7 +20,7 @@ permalink: /about/
     <dt>2019年</dt>
     <dd>
       <h2>Discord Botの開発/Pythonを始める(厳密には2018年も)</h2>
-      <p>初めてPythonを触るきっかけになったのは、Discord Botでした。/[Japanese Scratch-Wiki](https://ja.scratch-wiki.info)の管理者に就任</p>
+      <p>初めてPythonを触るきっかけになったのは、Discord Botでした。/<a href="https://ja.scratch-wiki.info">Japanese Scratch-Wiki</a>の管理者に就任</p>
     </dd>
   　<dt>2020年 - 4月〜6月</dt>
     <dd>
@@ -30,5 +30,8 @@ permalink: /about/
   　<dt>2020年 - 12月</dt>
     <dd>
       <h2>様々なことが起きる</h2>
-      <p>[project Little Lindo](https://littlelindo.jp)に所属する。Webのお手伝いなどを行う。/ポートフォリオを大晦日の6時間で仕上げる。</p>
+      <p><a href="https://littlelindo.jp">project Little Lindo</a>に所属する。Webのお手伝いなどを行う。/ポートフォリオを大晦日の6時間で仕上げる。</p>
     </dd>
+  
+  <a href="https://t-taku.app" class="btn btn-flat"><span>TOP</span></a>
+  <a href="https://t-taku.app" class="btn-flat-l">TOP</a>

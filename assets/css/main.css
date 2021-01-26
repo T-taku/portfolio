@@ -374,18 +374,22 @@ dl dd h2 {
     background: rgb(82, 194, 166);
    }
     
- .btn-flat-l {
-  display: inline-block !important;
-  padding: 0.3em 1em;
-  text-decoration: none;
-  color: white;
-  border: solid 2px white;
-  border-radius: 3px;
-  transition: .4s;
-}
-
-.btn-flat-l:hover {
-  background: black;
-  color: white;
-}
+   .btn-flat-l {
+    display: inline-block !important;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: white;
+    border: solid 2px white;
+    border-radius: 3px;
+    transition: .4s;
+  }
+  
+  .btn-flat-l:hover {
+    background: black;
+    color: white;
+  }
+  .btn,
+  .btn-flat{
+      display: none !important;
+      }
 }

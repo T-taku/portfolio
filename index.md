@@ -53,12 +53,12 @@ title: TOP
 <br>
 <script src="https://unpkg.com/@rocktimsaikia/github-card@2.1.1/dist/widget.min.js" type="module"></script>
 
-<github-card data-user="T-taku"></github-card>
+<github-card data-user="T-taku" data-theme="dark"></github-card>
 </center>
 
 ## Works
 <br>
 <center>
 外部のお仕事のみ書いています。<br>
-<div class="inline-2"><a href="https://sina-chan-d.com" class="n-a"><img src="img/sina.png" alt = "Sina-chan" class="works"></a></div>
-<div class="inline-2"><a href="https://ja.scratch-wiki.info" class="n-a"><img src="img/Wiki.png" alt = "Japanese Scratch-Wiki" class="works"></a></div>
+<a href="https://sina-chan-d.com"><img src="img/sina.png" alt = "Sina-chan" class="works"></a>
+<a href="https://ja.scratch-wiki.info"><img src="img/Wiki.png" alt = "Japanese Scratch-Wiki" class="works"></a>

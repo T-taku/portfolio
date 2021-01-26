@@ -171,12 +171,6 @@ h3{
   width: 100%;
 }
 
-.n-a{
-  text-decoration: none;
-  width: 80px;
-  height: auto;
-}
-
 *,
 *:before,
 *:after {
@@ -226,7 +220,7 @@ a.btn-flat {
 }
 
 .works{
-  width: 100px;
+  width: 80px;
   height: auto;
 }
 
@@ -323,7 +317,7 @@ dl dd h2 {
     font-size: auto;
     }
   .works{
-    width: 200px;
+    width: 80px;
     height: auto;
   }
   .post-content{

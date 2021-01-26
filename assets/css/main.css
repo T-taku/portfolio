@@ -6,8 +6,6 @@
     margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Montserrat', sans-serif;
-    background-color: #2C2F33;
-    color: #ffffff;
 }
 
 footer{
@@ -44,11 +42,13 @@ h1:before {
     height: 5px;
     content: '';
     border-radius: 3px;
-    background: rgb(68, 134, 172);
+    background: rgb(103, 165, 201);
   }
 
 .post-content{
     padding: 30px 11% 50px;
+    background-color: #2C2F33;
+    color: #ffffff;
   }
 
 .content{
@@ -115,7 +115,7 @@ table{
 }
 
 table th{
-  border-bottom: solid 2px rgb(68, 134, 172);
+  background: rgb(103, 165, 201);
   padding: 10px 0;
 }
 
@@ -353,7 +353,7 @@ dl dd h2 {
     height: 5px;
     content: '';
     border-radius: 3px;
-    background: rgb(68, 134, 172);
+    background: rgb(103, 165, 201);
   }
   h2 {
     position: relative;

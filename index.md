@@ -50,13 +50,10 @@ title: TOP
 </li>
 <br>
 <h3>GitHub</h3>
-<<<<<<< HEAD
 <br>
-<div class="github-card" data-github="T-taku" data-width="400" data-height="" data-theme="medium"></div>
-<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-=======
-<img src="https://github-profile-trophy.vercel.app/?username=T-taku&theme=nord" class="grass" alt="GitHub">
->>>>>>> 8cd6b01b1215d9956abf10cc55a5eb71fdcbe735
+<script src="https://unpkg.com/@rocktimsaikia/github-card@2.1.1/dist/widget.min.js" type="module"></script>
+
+<github-card data-user="T-taku"></github-card>
 </center>
 
 ## Works

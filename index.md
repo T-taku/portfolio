@@ -20,7 +20,7 @@ title: TOP
 </center>
 
 ## Who am I
-<br><br>
+<br>
 <center>
 <table>
   <tr>
@@ -39,7 +39,7 @@ title: TOP
 </center>
 
 ## Skill
-<br><br>
+<br>
 <center>
 <li>
 <ul><h3>Programing language</h3>
@@ -50,13 +50,17 @@ title: TOP
 </li>
 <br>
 <h3>GitHub</h3>
+<<<<<<< HEAD
 <br>
 <div class="github-card" data-github="T-taku" data-width="400" data-height="" data-theme="medium"></div>
 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+=======
+<img src="https://github-profile-trophy.vercel.app/?username=T-taku&theme=nord" class="grass" alt="GitHub">
+>>>>>>> 8cd6b01b1215d9956abf10cc55a5eb71fdcbe735
 </center>
 
 ## Works
-<br><br>
+<br>
 <center>
 外部のお仕事のみ書いています。<br>
 <div class="inline-2"><a href="https://sina-chan-d.com" class="n-a"><img src="img/sina.png" alt = "Sina-chan" class="works"></a></div>

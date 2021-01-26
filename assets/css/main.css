@@ -17,15 +17,21 @@ footer{
     bottom: 0;
     box-sizing: border-box;
     height: auto;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 } 
   footer>a{
     color: #fff !important;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
 h1 {
     position: relative;
     padding: 1rem;
     text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   
 h1:before {
@@ -48,11 +54,12 @@ h1:before {
   position: relative;
 }
   
-
-  h2 {
+h2 {
     position: relative;
     padding: 1rem;
     text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   
   h2:before {
@@ -186,6 +193,8 @@ html {
 .btn,
 a.btn,
 button.btn {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.5;
@@ -248,13 +257,72 @@ a.btn-flat:hover:before {
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
 
-@media screen and (max-width:1100px){
+.btn-flat-l{
+    display:none !important;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+body p {
+  line-height: 1.8;
+}
+
+body h1 {
+  font-size: 36px;
+  margin: 0 0 30px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+dl {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+dl dt {
+  text-align: right;
+  width: 8.5em;
+  padding: 0.5em 1.0em 0.5em 0.5em;
+  position: relative;
+}
+
+dl dt::after {
+  content: '●';
+  position: absolute;
+  right: -0.55em;
+  top: 5px;
+  font-size: 22px;
+  color: rgb(68, 134, 172);
+}
+
+dl dd {
+  width: calc(100% - 8.5em);
+  padding: 0.5em 2.0em 3.0em;
+  border-left: 2px solid #ccc;
+}
+
+dl dd h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
+@media screen and (max-width:980px){
   *{
-    font-size: 50px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    max-width: auto;
   }
+  p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Montserrat', sans-serif;
+    }   
   .skills{
-    font-size: 20px;
-  }
+    font-size: auto;
+    }
   .works{
     width: 200px;
     height: auto;
@@ -275,6 +343,8 @@ a.btn-flat:hover:before {
     position: relative;
     padding: 1rem;
     text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   h1:before {
     position: absolute;
@@ -286,73 +356,42 @@ a.btn-flat:hover:before {
     border-radius: 3px;
     background: rgb(68, 134, 172);
   }
-    *,
-    *:before,
-    *:after {
-      -webkit-box-sizing: inherit;
-      box-sizing: inherit;
+  h2 {
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  h2:before {
+    position: absolute;
+    bottom: -0.5px;
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 5px;
+    content: '';
+    border-radius: 3px;
+    background: rgb(82, 194, 166);
+   }
+    
+ .btn-flat-l {
+  display: inline-block !important;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: white;
+  border: solid 2px white;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-flat-l:hover {
+  background: black;
+  color: white;
+}
+.btn,
+.btn-flat{
+    display: none !important;
     }
 
-    html {
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-
-    .btn,
-    a.btn,
-    button.btn {
-      font-size: 1.6rem;
-      font-weight: 40;
-      line-height: 1.5;
-      position: relative;
-      display: inline-block;
-      padding: 1rem 4rem;
-      cursor: pointer;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      -webkit-transition: all 0.3s;
-      transition: all 0.3s;
-      text-align: center;
-      vertical-align: middle;
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      color: #212529;
-      border-radius: 0.5rem;
-    }
-
-    a.btn-flat {
-      overflow: hidden;
-      padding: 1.5rem 6rem;
-      color: #fff;
-      border-radius: 0;
-      background: rgb(15, 15, 15);
-    }
-
-    a.btn-flat span {
-      position: relative;
-    }
-
-    a.btn-flat:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      width: 150%;
-      height: 500%;
-
-      content: "";
-      -webkit-transition: all 0.5s ease-in-out;
-      transition: all 0.5s ease-in-out;
-      -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-      transform: translateX(-98%) translateY(-25%) rotate(45deg);
-
-      background: #00a3ee;
-    }
-
-    a.btn-flat:hover:before {
-      -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-      transform: translateX(-9%) translateY(-25%) rotate(45deg);
-    }
 }

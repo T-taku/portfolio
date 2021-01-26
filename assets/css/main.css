@@ -149,7 +149,7 @@ h3{
   text-align: center;
 }
 
-h2:before {
+.irai h2:before {
   display: none!important;
 }
 

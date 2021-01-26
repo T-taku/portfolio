@@ -90,6 +90,7 @@ a::after {
   background-color: #31aae2;
   transition: .3s;
   transform: translateX(-50%);
+  color: #89c4ff;
 }
 
 a:hover::after{
@@ -166,6 +167,8 @@ h3{
 
 .n-a{
   text-decoration: none;
+  width: 80px;
+  height: auto;
 }
 
 *,

@@ -42,12 +42,17 @@ title: TOP
 <br><br>
 <center>
 <li>
-<ul><h3>Programing language</h3> <p class="skills">Python/CSS/Vue.js/Jekyll/Git</p></ul>
+<ul><h3>Programing language</h3>
+<br>
+<p class="skills">Python/CSS/Vue.js/Jekyll/Git</p></ul>
 <ul><h3>OS</h3> <p class="skills">Windows/macOS/Ubuntu</p></ul>
 <ul><h3>Other skill</h3> <p class="skills">Adobe Illustrator</p></ul>
 </li>
+<br>
 <h3>GitHub</h3>
-<img src="https://grass-graph.moshimo.works/images/T-taku.png" class="grass" alt="GitHub">
+<br>
+<div class="github-card" data-github="T-taku" data-width="400" data-height="" data-theme="medium"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 </center>
 
 ## Works

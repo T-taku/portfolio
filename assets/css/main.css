@@ -388,9 +388,4 @@ dl dd h2 {
   background: black;
   color: white;
 }
-.btn,
-.btn-flat{
-    display: none !important;
-    }
-
 }

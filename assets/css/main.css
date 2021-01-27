@@ -310,7 +310,7 @@ dl dd h2 {
 }
 
 .head-anime{
-  animation: SlideIn 1.6s infinite;
+  animation: SlideIn 1.6s;
 }
 
 /* CSSアニメーションの設定 */

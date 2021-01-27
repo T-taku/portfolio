@@ -310,11 +310,10 @@ dl dd h2 {
 }
 
 .typing {
-  width: auto;
-  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  width: 22ch;
+  animation: typing 2s steps(22);
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid;
   font-family: 'Noto Sans JP', sans-serif !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: auto;
@@ -322,13 +321,7 @@ dl dd h2 {
  
 @keyframes typing {
   from {
-    width: auto;
-  }
-}
-    
-@keyframes blink {
-  50% {
-    border-color: transparent
+    width: 0;
   }
 }
 

@@ -310,11 +310,10 @@ dl dd h2 {
 }
 
 .head-anime{
-    display: none;
+   
 }
 
 .head-anime.active{
-  display: block !important;
   animation: SlideIn 1.6s;
 }
 

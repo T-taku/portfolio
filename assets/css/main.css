@@ -309,19 +309,19 @@ dl dd h2 {
   margin: 0 0 5px;
 }
 
-.typing {
-  width: 22ch;
-  animation: typing 2s steps(22);
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: 'Noto Sans JP', sans-serif !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: auto;
+.head-anime{
+  animation: SlideIn 1.6s infinite;
 }
- 
-@keyframes typing {
-  from {
-    width: 0;
+
+/* CSSアニメーションの設定 */
+@keyframes SlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-64px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

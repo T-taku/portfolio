@@ -309,7 +309,12 @@ dl dd h2 {
   margin: 0 0 5px;
 }
 
+.fadein{
+    visibility:hidden;
+}
+
 .head-anime{
+  visibility:visible !important;
   animation: SlideIn 1.6s;
 }
 

@@ -38,7 +38,7 @@ title: TOP
 </table>
 </center>
 
-<div class="typing"><h2>Skill<\h2></div>
+<div class="typing"><h2>Skill</h2></div>
 <br>
 <center>
 <li>

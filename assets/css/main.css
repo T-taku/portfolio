@@ -309,7 +309,7 @@ dl dd h2 {
   margin: 0 0 5px;
 }
 
-.head-anime{
+.head-anime.active{
   animation: SlideIn 1.6s;
 }
 

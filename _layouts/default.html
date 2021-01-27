@@ -19,6 +19,20 @@
     <title>{{ page.title }} - {{ site.title }}</title>
     <title>{{ site.title }}{% if page.title %} | {{page.title}}{% endif %}</title>
 </head>
+<script>
+    $(function() {
+ 
+	var active = $(".head-anime");
+ 
+	$(window).scroll(function(){
+		var Position = $(active).offset().top - $(window).height();	
+	
+		if ($(window).scrollTop() > Position) {
+			$(this).addClass("active");
+		}
+	});
+});
+    </script>
 <body>
     <div class="content" id="main">
         <div class="post-content">{{content}}</div>

@@ -21,17 +21,17 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <script>
-    $(function() {
- 
-	var active = $(".head-anime");
- 
-	$(window).scroll(function(){
-		var Position = $(active).offset().top - $(window).height();	
-	
-		if ($(window).scrollTop() > Position) {
-			$(this).addClass("active");
-		}
-	});
+$(function(){
+  $(window).scroll(function (){
+    $('.fadein').each(function(){
+      var elementTop = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > elementTop - windowHeight + 100){
+        $(this).addClass('head-anime');
+      }
+    });
+  });
 });
     </script>
 <body>

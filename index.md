@@ -8,10 +8,16 @@ title: TOP
 <br><br>
 
 <center>
+<div class="fadein">
 <img src="img/A26597EF-9957-42D6-915B-76A6BA2F3E3B.png" alt = "アイコン" width= "200">
+  
 </center>
 
+<div class="fadein">
+
 # T-taku
+
+</div>
 
 <center>
 <div class="inline"><a href="https://github.com/T-taku"><i class="fab fa-github"></i></a></div>
@@ -19,7 +25,12 @@ title: TOP
 <div class="inline"><a href="https://t-taku.jp/"><i class="far fa-window-maximize"></i></a></div>
 </center>
 
+<div class="fadein">
+  
 ## Who am I
+
+</div>
+
 <br>
 <center>
 <table>
@@ -38,7 +49,12 @@ title: TOP
 </table>
 </center>
 
+<div class="fadein">
+  
 ## Skill
+
+</div>
+
 <br>
 <center>
 <li>
@@ -56,7 +72,12 @@ title: TOP
 <github-card data-user="T-taku" data-theme="dark"></github-card>
 </center>
 
+<div class="fadein">
+
 ## Works
+
+</div>
+
 <br>
 <center>
 外部のお仕事のみ書いています。<br>

@@ -11,7 +11,7 @@ title: TOP
 <img src="img/A26597EF-9957-42D6-915B-76A6BA2F3E3B.png" alt = "アイコン" width= "200">
 </center>
 
-# T-taku
+<div class="typing"><h1>T-taku</h1></div>
 
 <center>
 <div class="inline"><a href="https://github.com/T-taku"><i class="fab fa-github"></i></a></div>
@@ -19,7 +19,7 @@ title: TOP
 <div class="inline"><a href="https://t-taku.jp/"><i class="far fa-window-maximize"></i></a></div>
 </center>
 
-## Who am I
+<div class="typing"><h2>Who am I</h2></div>
 <br>
 <center>
 <table>
@@ -38,25 +38,25 @@ title: TOP
 </table>
 </center>
 
-## Skill
+<div class="typing"><h2>Skill<\h2></div>
 <br>
 <center>
 <li>
-<ul><h3>Programing language</h3>
+  <ul><div class="typing"><h3>Programing language</h3></div>
 <br>
 <p class="skills">Python/CSS/Vue.js/Jekyll/Git</p></ul>
-<ul><h3>OS</h3> <p class="skills">Windows/macOS/Ubuntu</p></ul>
-<ul><h3>Other skill</h3> <p class="skills">Adobe Illustrator</p></ul>
+<ul><div class="typing"><h3>OS</h3> <p class="skills">Windows/macOS/Ubuntu</p></ul>
+<ul><div class="typing"><h3>Other skill</h3> <p class="skills">Adobe Illustrator</p></ul>
 </li>
 <br>
-<h3>GitHub</h3>
+<div class="typing"><h3>GitHub</h3>
 <br>
 <script src="https://unpkg.com/@rocktimsaikia/github-card@2.1.1/dist/widget.min.js" type="module"></script>
 
 <github-card data-user="T-taku" data-theme="dark"></github-card>
 </center>
 
-## Works
+<div class="typing"><h2>Works</h2>
 <br>
 <center>
 外部のお仕事のみ書いています。<br>

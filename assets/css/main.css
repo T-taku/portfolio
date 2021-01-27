@@ -314,6 +314,7 @@ dl dd h2 {
 }
 
 .head-anime.active{
+  display: block;
   animation: SlideIn 1.6s;
 }
 

@@ -133,9 +133,8 @@ h3{
   color: rgb(103, 165, 201);
 }
 
-ul{
-  list-style: disc;
-  padding-left: 40px;
+li{
+  display: list-item;
 }
 
 .inline-2{
@@ -294,7 +293,6 @@ body h1 {
 }
 
 .post-content{
-  padding: 30px 11% 50px;
   text-align: center;
 }
 

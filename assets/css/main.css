@@ -275,6 +275,15 @@ body h1 {
   font-weight: bold;
 }
 
+.fadein{
+  visibility:hidden;
+}
+
+.head-anime{
+  visibility:visible !important;
+  animation: SlideIn 1.6s;
+}
+
 /* CSSアニメーションの設定 */
 @keyframes SlideIn {
   0% {

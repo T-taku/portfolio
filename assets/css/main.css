@@ -105,6 +105,10 @@ a:hover::after{
   width: 100%;
 }
 
+head-a{
+  text-decoration: none!important;
+}
+
 li{
   list-style:none;
 }
@@ -239,8 +243,8 @@ a.btn-flat:before {
   top: 0;
   left: 0;
 
-  width: 150%;
-  height: 500%;
+  width: 150px;
+  height: auto;
 
   content: "";
   -webkit-transition: all 0.5s ease-in-out;
@@ -282,6 +286,10 @@ body h1 {
 .head-anime{
   visibility:visible !important;
   animation: SlideIn 1.6s;
+}
+
+.post-content{
+  padding: 30px 11% 50px;
 }
 
 /* CSSアニメーションの設定 */

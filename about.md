@@ -3,8 +3,6 @@ layout: page
 title: About
 permalink: /about/
 ---
-<center>
-
 ## それ以前
 
 様々な国に旅行をしていたり、いろんな人と会ったりする割とすごい人生を送っていた。

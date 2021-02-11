@@ -50,7 +50,6 @@ title: TOP
 <p class="skills">Python/CSS/Jekyll/Git</p></ul>
 <ul><h3>OS</h3> <p class="skills">Windows/macOS/Ubuntu</p></ul>
 <ul><h3>Other skill</h3> <p class="skills">Adobe Illustrator</p></ul>
-</li>
 <br>
 <h3>GitHub</h3>
 <br>

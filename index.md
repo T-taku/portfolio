@@ -8,7 +8,7 @@ title: TOP
 <br><br>
 
 <center>
-<img src="img/A26597EF-9957-42D6-915B-76A6BA2F3E3B.png" alt = "アイコン" width= "200">
+<img src="img/T-taku.png" alt = "アイコン" width= "200">
 </center>
 
 # T-taku
@@ -36,6 +36,10 @@ title: TOP
     <td><a href="https://littlelindo.jp/">project Little Lindo</a></td>
   </tr>
 </table>
+<br>
+<a href="https://t-taku.app/about/" class="btn btn-flat"><span>もっと詳しく</span></a>
+<a href="https://t-taku.app/about/" class="btn-flat-l"><span>もっと詳しく</span></a>
+
 </center>
 
 ## Skill

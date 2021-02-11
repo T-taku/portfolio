@@ -2,7 +2,7 @@
 <html lang="{{ site.lang | default: "en-US" }}">
 <head>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="{{site.url}}/img/A26597EF-9957-42D6-915B-76A6BA2F3E3B.png" />
+    <link rel="shortcut icon" type="image/png" href="{{site.url}}/img/T-taku.png" />
     <meta name="description" content="{{site.description}}">
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -36,6 +36,20 @@ $(function(){
 });
     </script>
 <body>
+  <header id="luxbar" class="luxbar-fixed">
+    <input type="checkbox" class="luxbar-checkbox" id="luxbar-checkbox"/>
+    <div class="luxbar-menu luxbar-menu-left luxbar-menu-material-green">
+        <ul class="luxbar-navigation">
+            <li class="luxbar-header">
+                <a href="#" class="luxbar-brand">T-taku</a>
+                <label class="luxbar-hamburger luxbar-hamburger-doublespin" 
+                id="luxbar-hamburger" for="luxbar-checkbox"> <span></span> </label>
+            </li>
+            <li class="luxbar-item"><a href="https://t-taku.app">TOP</a></li>
+            <li class="luxbar-item"><a href="https://t-taku.app/about/">About me</a></li>
+        </ul>
+    </div>
+</header>
     <div class="content" id="main">
         <div class="post-content">{{content}}</div>
     </div>

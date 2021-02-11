@@ -4,22 +4,25 @@ title: About
 permalink: /about/
 ---
 ## それ以前
-
+<br>
 様々な国に旅行をしていたり、いろんな人と会ったりする割とすごい人生を送っていた。
 
 ## 2017
+<br>
 
 ### 11月
 
 * Scratchを始める
 
 ## 2018
+<br>
 
 ### 08月
 
 * Discordボットの作成を始める
 
 ## 2019
+<br>
 
 余談:Discordが13歳以上では無いと使用できないことを知る
 ### 06月
@@ -34,6 +37,7 @@ permalink: /about/
 * [rspnet.jp](https://rspnet.jp)の運営チームに参加する
 
 ## 2020
+<br>
 
 ### 01月
 
@@ -53,6 +57,7 @@ permalink: /about/
 * 新型コロナウイルス感染通知アプリ CocoaのTypoを修正すべくOSSに参加する
 
 ## 2021
+<br>
 
 ### 02月
 

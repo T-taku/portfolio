@@ -133,6 +133,11 @@ h3{
   color: rgb(103, 165, 201);
 }
 
+ul{
+  list-style: disc;
+  padding-left: 40px;
+}
+
 .inline-2{
   display: inline-block;
   padding:  20px;
@@ -290,6 +295,7 @@ body h1 {
 
 .post-content{
   padding: 30px 11% 50px;
+  text-align: center;
 }
 
 /* CSSアニメーションの設定 */

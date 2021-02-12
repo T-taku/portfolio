@@ -29,7 +29,7 @@ permalink: /about/
 
 * [Japanese Scratch-Wiki](https://ja.scratch-wiki.info)の管理者に就任する
 
-## 08月
+### 08月
 
 * MediaWikiボットをJapanese Scratch-Wikiで作成
 ### 不明

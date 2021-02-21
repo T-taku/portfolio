@@ -14,13 +14,14 @@
     <meta property="og:title" content="{{site.title}}" />
     {% endif %}
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-    <link rel="stylesheet" href="{{ "/assets/luxbar/build/luxbar.css" | relative_url }}">
+    <script src="{{ "/assets/js/header.js" | relative_url }}"></script> 
     <meta property="og:image" content="{{site.url}}/img/topimage.png" />
     <meta name="theme-color" content="	86AC8E">
     <title>{{ page.title }} - {{ site.title }}</title>
     <title>{{ site.title }}{% if page.title %} | {{page.title}}{% endif %}</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <meta name="google-site-verification" content="PyRBL2rQ_RB6UjO1rbC0uBXZN5qf3dbmnqoKkSrYOqQ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <script>
 $(function(){
@@ -37,33 +38,22 @@ $(function(){
 });
     </script>
 <body>
-  <header id="luxbar" class="luxbar-fixed">
-    <input type="checkbox" class="luxbar-checkbox" id="luxbar-checkbox"/>
-    <div class="luxbar-menu luxbar-menu-left luxbar-menu-material-bluegrey">
-        <ul class="luxbar-navigation">
-            <li class="luxbar-header">
-              <p class="luxbar-brand">T-taku</p>
-                  <label class="luxbar-hamburger luxbar-hamburger-doublespin" id="luxbar-hamburger" for="luxbar-checkbox"> <span></span> </label>
-            </li>
-            <li class="luxbar-item"><a href="https://t-taku.app">HOME</a></li>
-            <li class="luxbar-item"><a href="https://t-taku.app/about/">About me</a></li>
+  <header class="header_bg">
+    <div class="header_contents">
+      <h1 class="uncss">T-taku</h1>
+      <div class="responsive_btn">
+        <div class="menu_line"></div>
+        <div class="menu_line"></div>
+        <div class="menu_line"></div>
+      </div>
+      <nav class="header_nav">
+        <ul class="header_nav_lists">
+          <li><a class="nav_link" href="https://t-taku.app">HOME</a></li>
+          <li><a class="nav_link" href="https://t-taku.app/about/">ABOUT ME</a></li>
         </ul>
+      </nav>
     </div>
   </header>
-  <div class="luxbar luxbar-static">
-    <input type="checkbox" id="luxbar-checkbox" class="luxbar-checkbox">
-    <div class="luxbar-menu luxbar-menu-right luxbar-menu-dark">
-        <ul class="luxbar-navigation">
-            <li class="luxbar-header">
-              <p class="luxbar-brand">T-taku</p>
-                <label class="luxbar-hamburger luxbar-hamburger-doublespin"
-                        for="luxbar-checkbox"> <span></span> </label>
-            </li>
-            <li class="luxbar-item active"><a href="https://t-taku.app">HOME</a></li>
-            <li class="luxbar-item active"><a href="https://t-taku.app/about/">About me</a></li>
-        </ul>
-    </div>
-  </div>
     <div class="content" id="main">
         <div class="post-content">{{content}}</div>
     </div>

@@ -51,11 +51,6 @@ title: TOP
 <ul><h3>OS</h3> <p class="skills">Windows/macOS/Ubuntu</p></ul>
 <ul><h3>Other skill</h3> <p class="skills">Adobe Illustrator</p></ul>
 <br>
-<h3>GitHub</h3>
-<br>
-<script src="https://unpkg.com/@rocktimsaikia/github-card@2.1.1/dist/widget.min.js" type="module"></script>
-
-<github-card data-user="T-taku" data-theme="dark"></github-card>
 </center>
 
 ## Works

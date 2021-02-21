@@ -14,7 +14,7 @@
     <meta property="og:title" content="{{site.title}}" />
     {% endif %}
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-    <script src="{{ "/assets/js/header.js" | relative_url }}"></script> 
+    <link rel="stylesheet" href="https://cdn.rawgit.com/balzss/luxbar/ae5835e2/build/luxbar.min.css">
     <meta property="og:image" content="{{site.url}}/img/topimage.png" />
     <meta name="theme-color" content="	86AC8E">
     <title>{{ page.title }} - {{ site.title }}</title>
@@ -38,22 +38,20 @@ $(function(){
 });
     </script>
 <body>
-  <header class="header_bg">
-    <div class="header_contents">
-      <h1 class="uncss">T-taku</h1>
-      <div class="responsive_btn">
-        <div class="menu_line"></div>
-        <div class="menu_line"></div>
-        <div class="menu_line"></div>
-      </div>
-      <nav class="header_nav">
-        <ul class="header_nav_lists">
-          <li><a class="nav_link" href="https://t-taku.app">HOME</a></li>
-          <li><a class="nav_link" href="https://t-taku.app/about/">ABOUT ME</a></li>
+  <header id="luxbar" class="luxbar-fixed">
+    <input type="checkbox" class="luxbar-checkbox" id="luxbar-checkbox"/>
+    <div class="luxbar-menu luxbar-menu-left luxbar-menu-material-bluegrey">
+        <ul class="luxbar-navigation">
+            <li class="luxbar-header">
+                <p class="luxbar-brand">T-taku</p>
+                <label class="luxbar-hamburger luxbar-hamburger-doublespin" 
+                id="luxbar-hamburger" for="luxbar-checkbox"> <span></span> </label>
+            </li>
+            <li class="luxbar-item"><a href="https://t-taku.app" class="head-a">TOP</a></li>
+            <li class="luxbar-item"><a href="https://t-taku.app/about/" class="head-a">About me</a></li>
         </ul>
-      </nav>
     </div>
-  </header>
+</header>
     <div class="content" id="main">
         <div class="post-content">{{content}}</div>
     </div>

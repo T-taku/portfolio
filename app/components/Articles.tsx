@@ -20,7 +20,15 @@ export default function Articles({ articles }: { articles: { title: string, host
         </motion.h1>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-[30px]">
           {articles.map((article, index) => (
-            <LinksCard key={index} {...article} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+            >
+              <LinksCard {...article} />
+            </motion.div>
           ))}
         </div>
       </div>

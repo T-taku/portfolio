@@ -18,7 +18,7 @@ export default function WorksCard({ title, tag, image, href, worksColor }: { tit
             <Image src={image} alt={title} width={500} height={300} className="h-[300px] w-full object-cover rounded-[20px]" />
             <span 
               className="absolute top-0 left-0 rounded-tl-[20px] rounded-br-[16px] px-4 py-2 text-white flex items-center justify-center"
-              style={{ backgroundColor: worksColor || "#78A657" }}
+              style={{ backgroundColor: "#78A657" }}
             >
               {tag}
             </span>

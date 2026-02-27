@@ -13,9 +13,9 @@ export default function WorksCard({ title, tag, image, href }: { title: string, 
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <Link href={href} className="block group">
-        <div className="relative w-[500px] h-[355px] flex flex-col gap-[26px]">
+        <div className="relative flex h-[355px] w-full flex-col gap-[26px] lg:w-[500px]">
           <div className="relative">
-            <Image src={image} alt={title} width={500} height={300} className="w-full h-[300px] object-cover rounded-[20px]" />
+            <Image src={image} alt={title} width={500} height={300} className="h-[300px] w-full object-cover rounded-[20px]" />
             <span className="absolute top-0 left-0 bg-[#78A657] rounded-tl-[20px] rounded-br-[16px] px-4 py-2 text-white flex items-center justify-center">{tag}</span>
           </div>
           <div className="relative w-fit group">

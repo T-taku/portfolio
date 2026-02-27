@@ -54,7 +54,7 @@ export default async function Home() {
   allArticles.sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <div className="flex min-h-screen w-full flex-col px-[70px]">
+    <div className="flex min-h-screen w-full flex-col max-lg:gap-[60px] px-[20px] lg:px-[70px]">
       <Hero />
       <About />
       <Works />

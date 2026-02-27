@@ -26,8 +26,8 @@ export default function Works() {
   }, [emblaApi]);
 
   return (
-    <section id="works" className="flex min-h-screen w-[calc(100%+70px)] flex-col justify-center gap-[13px] mr-[-70px] relative overflow-hidden">
-      <div className="mx-auto w-full max-w-[1200px] pr-[70px] relative z-20">
+    <section id="works" className="relative flex max-lg:mb-[40px] lg:min-h-screen w-full flex-col justify-center gap-[13px] overflow-hidden lg:mr-[-70px] lg:w-[calc(100%+70px)]">
+      <div className="relative z-20 mx-auto w-full max-w-[1200px] lg:pr-[70px]">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,11 +58,11 @@ export default function Works() {
             </button>
           </div>
         </motion.h1>
-        <div className="-mr-[50vw] w-[calc(100%+50vw)]">
+        <div className="lg:-mr-[50vw] lg:w-[calc(100%+50vw)]">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-[30px]">
               {works.map((work, index) => (
-                <div key={index} className="shrink-0 flex-[0_0_500px] min-w-0">
+                <div key={index} className="min-w-0 shrink-0 flex-[0_0_100%] lg:flex-[0_0_500px]">
                   <WorksCard {...work} />
                 </div>
               ))}
@@ -70,7 +70,7 @@ export default function Works() {
           </div>
         </div>
       </div>
-      <div className="pointer-events-none z-40 absolute right-0 top-[calc(50%+40px)] h-[360px] w-[150px] -translate-y-1/2 bg-gradient-to-l from-white to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-[calc(50%+40px)] z-40 hidden h-[360px] w-[150px] -translate-y-1/2 bg-gradient-to-l from-white to-transparent lg:block" />
     </section>
   );
 }

@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function WorksCard({ title, tag, image, href }: { title: string, tag: string, image: string, href: string }) {
+export default function WorksCard({ title, tag, image, href, worksColor }: { title: string, tag: string, image: string, href: string, worksColor?: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -16,7 +16,12 @@ export default function WorksCard({ title, tag, image, href }: { title: string, 
         <div className="relative flex h-[355px] w-full flex-col gap-[26px] lg:w-[500px]">
           <div className="relative">
             <Image src={image} alt={title} width={500} height={300} className="h-[300px] w-full object-cover rounded-[20px]" />
-            <span className="absolute top-0 left-0 bg-[#78A657] rounded-tl-[20px] rounded-br-[16px] px-4 py-2 text-white flex items-center justify-center">{tag}</span>
+            <span 
+              className="absolute top-0 left-0 rounded-tl-[20px] rounded-br-[16px] px-4 py-2 text-white flex items-center justify-center"
+              style={{ backgroundColor: worksColor || "#78A657" }}
+            >
+              {tag}
+            </span>
           </div>
           <div className="relative w-fit group">
             <h3 className="text-[18px] font-medium tracking-[5%]">{title}</h3>

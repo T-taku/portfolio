@@ -217,10 +217,13 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-            className="flex items-center justify-center space-x-[16px] font-bold lg:justify-end lg:space-x-[30px]"
+            className="flex flex-col font-bold items-start md:items-end"
           >
-            <span className="text-[32px]">About</span>
-            <span className="text-[16px]">私について</span>
+            <div className="flex items-center justify-center space-x-[16px] font-bold lg:justify-end lg:space-x-[30px]">
+              <span className="text-[32px]">About me</span>
+              <span className="text-[16px]">私について</span>
+            </div>
+            <span>Takuma Tateishi / 立石 琢磨</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

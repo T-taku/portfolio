@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Sidemenu from "./components/_ui/Sidemenu";
-import Footer from "./components/_ui/Footer";
 
 const cabinetGrotesk = localFont({
   src: [
@@ -19,8 +17,26 @@ const cabinetGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Takuma Tateishi Portfolio",
+  metadataBase: new URL("https://t-taku.app"),
+  title: {
+    default: "Takuma Tateishi Portfolio",
+    template: "%s | Takuma Tateishi Portfolio",
+  },
   description: "My Portfolio from 2026",
+  openGraph: {
+    title: "Takuma Tateishi Portfolio",
+    description: "My Portfolio from 2026",
+    url: "https://t-taku.app",
+    siteName: "Takuma Tateishi Portfolio",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Takuma Tateishi Portfolio",
+    description: "My Portfolio from 2026",
+    creator: "@T_taku0427",
+  },
 };
 
 export default function RootLayout({
@@ -30,15 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="scroll-smooth">
-      <body
-        className={`${cabinetGrotesk.variable}`}
-      >
-        <Sidemenu />
-        <main className="lg:pl-[248px]">
-          {children}
-        </main>
-        <Footer />
-      </body>
+      <body className={`${cabinetGrotesk.variable}`}>{children}</body>
     </html>
   );
 }

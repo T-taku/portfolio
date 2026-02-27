@@ -1,11 +1,12 @@
-import About from "./components/About";
-import Articles from "./components/Articles";
-import Hero from "./components/Hero";
-import Works from "./components/Works";
+import About from "../components/About";
+import Articles from "../components/Articles";
+import Hero from "../components/Hero";
+import Works from "../components/Works";
+import { getWorks } from "@/lib/microcms";
 
 async function getZennArticles() {
   try {
-    const res = await fetch('https://zenn.dev/t_taku0427/feed', { next: { revalidate: 3600 } });
+    const res = await fetch("https://zenn.dev/t_taku0427/feed", { next: { revalidate: 3600 } });
     if (!res.ok) return [];
     const text = await res.text();
 
@@ -21,13 +22,13 @@ async function getZennArticles() {
 
       if (titleMatch && linkMatch && dateMatch) {
         const date = new Date(dateMatch[1]);
-        const formattedDate = `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getDate().toString().padStart(2, '0')}`;
+        const formattedDate = `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart(2, "0")}.${date.getDate().toString().padStart(2, "0")}`;
 
         items.push({
           title: titleMatch[1].replace("<![CDATA[", "").replace("]]>", ""),
           hosted: "zenn",
           date: formattedDate,
-          href: linkMatch[1]
+          href: linkMatch[1],
         });
       }
     }
@@ -39,25 +40,25 @@ async function getZennArticles() {
 }
 
 export default async function Home() {
+  const works = await getWorks();
   const articles = await getZennArticles();
   const allArticles = [
     {
       title: "PyCon JP 2025のWebサイトを支えた技術",
       hosted: "Speaker Deck",
       date: "2025.09.27",
-      href: "https://speakerdeck.com/t_taku0427/pycon-jp-2025nouebusaitowozhi-etaji-shu"
+      href: "https://speakerdeck.com/t_taku0427/pycon-jp-2025nouebusaitowozhi-etaji-shu",
     },
-    ...articles
+    ...articles,
   ];
 
-  // 日付の新しい順にソート
   allArticles.sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <div className="flex min-h-screen w-full flex-col max-lg:gap-[60px] px-[20px] lg:px-[70px]">
       <Hero />
       <About />
-      <Works />
+      <Works works={works} />
       <Articles articles={allArticles} />
     </div>
   );

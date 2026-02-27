@@ -4,18 +4,11 @@ import { useCallback } from "react";
 import { motion } from "motion/react"
 import useEmblaCarousel from "embla-carousel-react";
 import WorksCard from "./_ui/WorksCard";
+import type { Work } from "@/lib/microcms";
 
-const worksData = [
-  { title: "くるぴろ・サイネージ", tag: "サイネージ", image: "/heroes/hero_1.png", href: "#" },
-  { title: "PyCon JP 2025 Webサイト", tag: "Webサイト", image: "/heroes/hero_2.png", href: "#" },
-  { title: "出張版!VRCくりえいてぃ部2 イベントサイト", tag: "Webサイト", image: "/heroes/hero_3.png", href: "#" },
-];
-
-// ループ動作を安定させるためにデータを複製してスライド数を増やす
-const works = [...worksData, ...worksData, ...worksData];
-
-export default function Works() {
+export default function Works({ works }: { works: Work[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const slides = works.length > 0 ? [...works, ...works, ...works] : [];
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -61,9 +54,15 @@ export default function Works() {
         <div className="lg:-mr-[50vw] lg:w-[calc(100%+50vw)]">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-[30px]">
-              {works.map((work, index) => (
-                <div key={index} className="min-w-0 shrink-0 flex-[0_0_100%] lg:flex-[0_0_500px]">
-                  <WorksCard {...work} />
+              {slides.map((work, index) => (
+                <div key={`${work.id}-${index}`} className="min-w-0 shrink-0 flex-[0_0_100%] lg:flex-[0_0_500px]">
+                  <WorksCard
+                    title={work.title}
+                    tag={work.category}
+                    image={work.thumbnail.url}
+                    href={work.id === "works" || work.id === "work" || work.id === "api-works" ? "/works" : `/works/${work.id}`}
+                    worksColor={work.worksColor}
+                  />
                 </div>
               ))}
             </div>

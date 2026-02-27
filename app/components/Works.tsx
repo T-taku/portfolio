@@ -3,10 +3,27 @@
 import { useCallback } from "react";
 import { motion } from "motion/react"
 import useEmblaCarousel from "embla-carousel-react";
+import useSWR from "swr";
 import WorksCard from "./_ui/WorksCard";
 import type { Work } from "@/lib/microcms";
 
-export default function Works({ works }: { works: Work[] }) {
+const fetcher = async (url: string): Promise<Work[]> => {
+  const response = await fetch(url, { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error("Failed to fetch works");
+  }
+  return response.json();
+};
+
+export default function Works() {
+  const { data: works = [] } = useSWR<Work[]>("/api/works", fetcher, {
+    revalidateOnFocus: true,
+    revalidateOnReconnect: true,
+    revalidateIfStale: true,
+    dedupingInterval: 0,
+    refreshInterval: 5000,
+  });
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
   const slides = works.length > 0 ? [...works, ...works, ...works] : [];
 

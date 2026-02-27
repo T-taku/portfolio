@@ -2,7 +2,6 @@ import About from "../components/About";
 import Articles from "../components/Articles";
 import Hero from "../components/Hero";
 import Works from "../components/Works";
-import { getWorks } from "@/lib/microcms";
 
 async function getZennArticles() {
   try {
@@ -39,7 +38,6 @@ async function getZennArticles() {
 }
 
 export default async function Home() {
-  const works = await getWorks();
   const articles = await getZennArticles();
   const allArticles = [
     {
@@ -57,7 +55,7 @@ export default async function Home() {
     <div className="flex min-h-screen w-full flex-col max-lg:gap-[60px] px-[20px] lg:px-[70px]">
       <Hero />
       <About />
-      <Works works={works} />
+      <Works />
       <Articles articles={allArticles} />
     </div>
   );

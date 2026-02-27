@@ -79,7 +79,7 @@ export async function getWorks(): Promise<Work[]> {
       const data = await client.getList<WorkRaw>({
         endpoint,
         customRequestInit: {
-          next: { revalidate: 3600 },
+          cache: "no-store",
         },
       });
 
@@ -90,7 +90,7 @@ export async function getWorks(): Promise<Work[]> {
         const objectData = await client.getObject<WorkRaw>({
           endpoint,
           customRequestInit: {
-            next: { revalidate: 3600 },
+            cache: "no-store",
           },
         });
 
@@ -114,7 +114,7 @@ export async function getWorkById(id: string): Promise<Work | null> {
         endpoint,
         contentId: id,
         customRequestInit: {
-          next: { revalidate: 3600 },
+          cache: "no-store",
         },
       });
 
@@ -125,7 +125,7 @@ export async function getWorkById(id: string): Promise<Work | null> {
         const objectData = await client.getObject<WorkRaw>({
           endpoint,
           customRequestInit: {
-            next: { revalidate: 3600 },
+            cache: "no-store",
           },
         });
 

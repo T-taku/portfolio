@@ -33,8 +33,7 @@ async function getZennArticles() {
       }
     }
     return items.slice(0, 4);
-  } catch (e) {
-    console.error(e);
+  } catch {
     return [];
   }
 }

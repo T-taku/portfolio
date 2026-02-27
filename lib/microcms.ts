@@ -83,16 +83,8 @@ export async function getWorks(): Promise<Work[]> {
         },
       });
 
-      if (Array.isArray((data as { contents?: WorkRaw[] }).contents)) {
-        return ((data as { contents: WorkRaw[] }).contents ?? []).map((work) => normalizeWork(work, endpoint));
-      }
-
-      return [normalizeWork(data as WorkRaw, endpoint)];
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "";
-      if (!message.includes("404")) {
-        console.error(error);
-      }
+      return data.contents.map((work) => normalizeWork(work, endpoint));
+    } catch {
 
       try {
         const objectData = await client.getObject<WorkRaw>({
@@ -106,14 +98,12 @@ export async function getWorks(): Promise<Work[]> {
       } catch (objectError) {
         const objectMessage = objectError instanceof Error ? objectError.message : "";
         if (!objectMessage.includes("404")) {
-          console.error(objectError);
           return [];
         }
       }
     }
   }
 
-  console.error("microCMS works endpoint not found. Set MICROCMS_WORKS_ENDPOINT in .env");
   return [];
 }
 
@@ -129,11 +119,7 @@ export async function getWorkById(id: string): Promise<Work | null> {
       });
 
       return normalizeWork(detail, id);
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "";
-      if (!message.includes("404")) {
-        console.error(error);
-      }
+    } catch {
 
       try {
         const objectData = await client.getObject<WorkRaw>({
@@ -149,7 +135,6 @@ export async function getWorkById(id: string): Promise<Work | null> {
       } catch (objectError) {
         const objectMessage = objectError instanceof Error ? objectError.message : "";
         if (!objectMessage.includes("404")) {
-          console.error(objectError);
           return null;
         }
       }

@@ -164,7 +164,7 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
     replace: (domNode: DOMNode) => {
       if (domNode instanceof Element && domNode.name === "p" && domNode.children) {
         const elementChildren = domNode.children.filter((child) => !(child.type === "text" && (child as any).data.trim() === ""));
-        if (elementChildren.length === 1 && isLinkCard(elementChildren[0])) {
+        if (elementChildren.length === 1 && isLinkCard(elementChildren[0] as DOMNode)) {
           return renderLinkCard(elementChildren[0] as Element);
         }
       }

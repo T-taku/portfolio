@@ -4,7 +4,7 @@ import LinksCard from "./_ui/LinkCard";
 
 export default function Articles({ articles }: { articles: { title: string, hosted: string, date: string, href: string }[] }) {
   return (
-    <section id="articles" className="relative mb-[120px] flex w-full flex-col justify-center gap-[13px] overflow-hidden lg:mr-[-70px] lg:w-[calc(100%+70px)]">
+    <section id="articles" className="relative mb-[120px] flex w-full flex-col justify-center gap-[13px] lg:mr-[-70px] lg:w-[calc(100%+70px)]">
       <div className="relative z-20 mx-auto w-full max-w-[1200px] lg:pr-[70px]">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

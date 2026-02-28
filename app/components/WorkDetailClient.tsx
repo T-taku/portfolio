@@ -178,10 +178,12 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
           <div className="flex flex-col items-start gap-4">
             <h1 className={`text-[28px] font-black lg:text-[36px] ${textColorClass}`}>{work.title}</h1>
             <div className={`flex flex-col gap-3 border-l-[2px] pl-4 ${isLightBg ? "border-black/20" : "border-white/20"}`}>
-              <div className="flex items-center gap-3">
-                <FaHandshake className={`shrink-0 text-[20px] lg:text-[24px] ${textColorClass}`} />
-                <span className={`text-[16px] font-medium lg:text-[20px] ${textColorClass}`}>{work.client}</span>
-              </div>
+              {work.client && (
+                <div className="flex items-center gap-3">
+                  <FaHandshake className={`shrink-0 text-[20px] lg:text-[24px] ${textColorClass}`} />
+                  <span className={`text-[16px] font-medium lg:text-[20px] ${textColorClass}`}>{work.client}</span>
+                </div>
+              )}
               {work.link && (
                 <div className="flex items-center gap-3">
                   <FaLink className={`shrink-0 text-[20px] lg:text-[24px] ${textColorClass}`} />

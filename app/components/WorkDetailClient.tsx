@@ -23,6 +23,10 @@ import {
   SiJavascript,
   SiHtml5,
   SiCss3,
+  SiFirebase,
+  SiCloudflare,
+  SiCloudflarepages,
+  SiCloudflareworkers,
 } from "react-icons/si";
 import { FaHandshake } from "react-icons/fa";
 import { MdConstruction } from "react-icons/md";
@@ -95,6 +99,11 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
       "JavaScript": <SiJavascript />,
       "HTML": <SiHtml5 />,
       "CSS": <SiCss3 />,
+      "Firebase": <SiFirebase />,
+      "Cloudflare": <SiCloudflare />,
+      "Cloudflare Pages": <SiCloudflarepages />,
+      "Cloudflare Workers": <SiCloudflareworkers />,
+      "Cloudflare R2": <SiCloudflare />,
     };
     return icons[tech] || null;
   };

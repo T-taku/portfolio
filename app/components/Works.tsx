@@ -24,8 +24,10 @@ export default function Works() {
     refreshInterval: 5000,
   });
 
+  const sortedWorks = [...works].sort((a, b) => new Date(b.worksAt).getTime() - new Date(a.worksAt).getTime());
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
-  const slides = works.length > 0 ? [...works, ...works, ...works] : [];
+  const slides = sortedWorks.length > 0 ? [...sortedWorks, ...sortedWorks, ...sortedWorks] : [];
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();

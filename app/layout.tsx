@@ -47,8 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="scroll-smooth">
-      <Analytics />
-      <body className={`${cabinetGrotesk.variable}`}>{children}</body>
+      <body className={`${cabinetGrotesk.variable}`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

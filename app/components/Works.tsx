@@ -27,7 +27,7 @@ export default function Works() {
   const sortedWorks = [...works].sort((a, b) => new Date(b.worksAt).getTime() - new Date(a.worksAt).getTime());
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
-  const slides = sortedWorks.length > 0 ? [...sortedWorks, ...sortedWorks, ...sortedWorks] : [];
+  const slides = [...sortedWorks, ...sortedWorks];
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -72,9 +72,9 @@ export default function Works() {
         </motion.h1>
         <div className="lg:-mr-[50vw] lg:w-[calc(100%+50vw)]">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-[30px]">
+            <div className="flex">
               {slides.map((work, index) => (
-                <div key={`${work.id}-${index}`} className="min-w-0 shrink-0 flex-[0_0_100%] lg:flex-[0_0_500px]">
+                <div key={`${work.id}-${index}`} className="min-w-0 shrink-0 mr-[30px] flex-[0_0_100%] lg:flex-[0_0_500px]">
                   <WorksCard
                     title={work.title}
                     tag={work.category}

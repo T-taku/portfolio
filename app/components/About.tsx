@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type ComponentProps } from "react";
+import { useRef, useState, useEffect, type ComponentProps } from "react";
 import { motion } from "motion/react"
 import { SiNextdotjs, SiPython, SiReactrouter, SiAdobepremierepro, SiTailwindcss, SiFigma, SiCanva } from "react-icons/si";
 import { GiPhotoCamera } from "react-icons/gi";
@@ -155,6 +155,15 @@ export default function About() {
     return initialZIndices;
   });
 
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasLoaded(true);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleDragStart = (id: string) => {
     maxZIndexRef.current += 1;
     setZIndices((prev) => ({
@@ -166,7 +175,7 @@ export default function About() {
   return (
     <section id="about" className="mx-auto flex w-full max-w-[1200px] flex-col justify-center gap-[13px] py-10 lg:py-0">
       <div className="flex w-full flex-col items-center gap-8 lg:flex-row lg:items-center lg:space-x-[120px] lg:gap-0">
-        <div className="relative h-[240px] w-[240px] shrink-0 lg:h-[340px] lg:w-[340px]" ref={constraintsRef}>
+        <div className="relative h-[240px] w-[240px] shrink-0 lg:h-[340px] lg:w-[340px] [perspective:1000px]" ref={constraintsRef}>
           <motion.div
             className="h-full w-full overflow-hidden"
             style={{
@@ -194,7 +203,7 @@ export default function About() {
               key={item.id}
               className={`${item.className} cursor-grab active:cursor-grabbing`}
               style={{ zIndex: zIndices[item.id] }}
-              initial={{ opacity: 0, scale: 2, rotate: 0 }}
+              initial="initial"
               animate={positions[item.id] ? {
                 opacity: 1,
                 scale: 1,
@@ -202,17 +211,46 @@ export default function About() {
                 y: positions[item.id].y,
                 rotate: positions[item.id].rotate
               } : {}}
-              transition={{ type: "spring", stiffness: 300, damping: 15, mass: 1, delay: 1.2 + (index * 0.1) }}
-              whileDrag={{ scale: 1.1, zIndex: 1000, filter: "drop-shadow(0px 5px 10px rgba(0,0,0,0.3))" }}
+              transition={{ type: "spring", stiffness: 400, damping: 20, mass: 1, delay: hasLoaded ? 0 : 1.2 + (index * 0.1) }}
+              whileDrag="dragging"
               drag
               dragConstraints={constraintsRef}
               onDragStart={() => handleDragStart(item.id)}
+              variants={{
+                dragging: {
+                  scale: 1.1,
+                  rotate: -5,
+                  zIndex: 1000,
+                  filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.2))",
+                  transition: { duration: 0.05, delay: 0 }
+                }
+              }}
             >
-              {item.type === "sticker" ? (
-                <TechSticker className="relative h-full w-full" {...item.props} />
-              ) : (
-                <IconBadge {...item.props} />
-              )}
+              <div className="relative h-full w-full">
+                {item.type === "sticker" ? (
+                  <TechSticker className="relative h-full w-full" {...item.props} />
+                ) : (
+                  <IconBadge {...item.props} />
+                )}
+
+                {/* ホログラムオーバーレイ (銀色キラキラ) */}
+                <motion.div
+                  className="absolute inset-0 h-full w-full rounded-full pointer-events-none"
+                  variants={{
+                    initial: { opacity: 0 },
+                    dragging: { opacity: 0.8 }
+                  }}
+                  style={{
+                    background: `
+                      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.7) 2px, rgba(255,255,255,0.7) 4px),
+                      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.7) 2px, rgba(255,255,255,0.7) 4px),
+                      conic-gradient(from 0deg, rgba(255,0,0,0.3), rgba(255,255,0,0.3), rgba(0,255,0,0.3), rgba(0,255,255,0.3), rgba(0,0,255,0.3), rgba(255,0,255,0.3), rgba(255,0,0,0.3)),
+                      linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.6) 100%)
+                    `,
+                    mixBlendMode: "hard-light"
+                  }}
+                />
+              </div>
             </motion.div>
           ))}
         </div>

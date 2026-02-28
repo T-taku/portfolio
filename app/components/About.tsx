@@ -169,6 +169,11 @@ export default function About() {
         <div className="relative h-[240px] w-[240px] shrink-0 lg:h-[340px] lg:w-[340px]" ref={constraintsRef}>
           <motion.div
             className="h-full w-full overflow-hidden"
+            style={{
+              WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+              backfaceVisibility: "hidden",
+              transform: "translateZ(0)",
+            }}
             animate={{
               borderRadius: [
                 "72% 28% 68% 32% / 30% 70% 34% 66%",

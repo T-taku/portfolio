@@ -14,17 +14,17 @@ type BadgeProps = ComponentProps<typeof IconBadge>;
 
 type AboutItem =
   | {
-      id: string;
-      type: "sticker";
-      className: string;
-      props: StickerProps;
-    }
+    id: string;
+    type: "sticker";
+    className: string;
+    props: StickerProps;
+  }
   | {
-      id: string;
-      type: "badge";
-      className: string;
-      props: BadgeProps;
-    };
+    id: string;
+    type: "badge";
+    className: string;
+    props: BadgeProps;
+  };
 
 export default function About() {
   const constraintsRef = useRef<HTMLDivElement>(null);
@@ -73,7 +73,7 @@ export default function About() {
     {
       id: "nextjs",
       type: "sticker",
-      className: "absolute -left-2 top-12 h-[64px] w-[64px] lg:-left-4 lg:top-16 lg:h-[86px] lg:w-[86px] z-10",
+      className: "absolute -left-2 top-1/2 -translate-y-1/2 h-[64px] w-[64px] lg:-left-4 lg:h-[86px] lg:w-[86px] z-10",
       props: {
         ringText: "NEXT.JS",
         icon: <SiNextdotjs className="h-[26px] w-[26px] lg:h-[36px] lg:w-[36px]" />,
@@ -86,7 +86,7 @@ export default function About() {
     {
       id: "reactrouter",
       type: "badge",
-      className: "absolute left-8 -top-2 z-10 lg:left-12 lg:-top-4",
+      className: "absolute left-1/3 -top-4 -translate-x-1/2 z-10 lg:left-1/4 lg:-top-6",
       props: {
         icon: <SiReactrouter className="h-full w-full" />,
         label: "React Router",
@@ -96,7 +96,7 @@ export default function About() {
     {
       id: "CameraA6400",
       type: "badge",
-      className: "absolute left-8 -top-2 z-10 lg:left-12 lg:-top-4",
+      className: "absolute left-2/3 -bottom-4 -translate-x-1/2 z-10 lg:left-3/4 lg:-bottom-6",
       props: {
         icon: <GiPhotoCamera className="h-full w-full" />,
         label: "α6400",
@@ -106,7 +106,7 @@ export default function About() {
     {
       id: "CameraEOS70d",
       type: "badge",
-      className: "absolute left-8 -top-2 z-10 lg:left-12 lg:-top-4",
+      className: "absolute -right-2 top-1/2 -translate-y-1/2 z-10 lg:-right-4",
       props: {
         icon: <GiPhotoCamera className="h-full w-full" />,
         label: "EOS 70D",
@@ -126,7 +126,7 @@ export default function About() {
     {
       id: "canva",
       type: "badge",
-      className: "absolute left-1/2 -bottom-4 -translate-x-1/2 z-10 lg:-bottom-6",
+      className: "absolute left-1/3 -bottom-4 -translate-x-1/2 z-10 lg:left-1/4 lg:-bottom-6",
       props: {
         icon: <SiCanva className="h-full w-full" />,
         label: "Canva",

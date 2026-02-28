@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const cabinetGrotesk = localFont({
   src: [
@@ -46,6 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="scroll-smooth">
+      <Analytics />
       <body className={`${cabinetGrotesk.variable}`}>{children}</body>
     </html>
   );

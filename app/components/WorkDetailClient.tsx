@@ -61,6 +61,8 @@ interface WorkDetailClientProps {
 
 type NoticeVariant = "note" | "tip" | "important" | "warning" | "caution";
 
+const NOTICE_BLOCK_TAGS = new Set(["div", "p", "section", "article", "aside", "blockquote", "li"]);
+
 const NOTICE_CLASS_MAP: Record<string, NoticeVariant> = {
   note: "note",
   "alert-note": "note",
@@ -134,6 +136,29 @@ const getTextData = (node: DOMNode): string | null => {
     return node.data;
   }
   return null;
+};
+
+const collectNoticeVariants = (node: DOMNode, variants: Set<NoticeVariant>) => {
+  if (!(node instanceof Element)) return;
+
+  const ownVariant = getNoticeVariant(node.attribs?.class);
+  if (ownVariant) {
+    variants.add(ownVariant);
+  }
+
+  if (node.children) {
+    node.children.forEach((child) => collectNoticeVariants(child as DOMNode, variants));
+  }
+};
+
+const detectParagraphNoticeVariant = (paragraph: Element): NoticeVariant | null => {
+  if (paragraph.name !== "p" || !paragraph.children?.length) return null;
+
+  const variants = new Set<NoticeVariant>();
+  paragraph.children.forEach((child) => collectNoticeVariants(child as DOMNode, variants));
+
+  if (variants.size !== 1) return null;
+  return Array.from(variants)[0] ?? null;
 };
 
 export default function WorkDetailClient({ id, initialWork }: WorkDetailClientProps) {
@@ -264,8 +289,13 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
   const parseOptions = {
     replace: (domNode: DOMNode) => {
       if (domNode instanceof Element) {
+        const paragraphVariant = detectParagraphNoticeVariant(domNode);
+        if (paragraphVariant) {
+          return renderNotice(domNode, paragraphVariant);
+        }
+
         const noticeVariant = getNoticeVariant(domNode.attribs?.class);
-        if (noticeVariant) {
+        if (noticeVariant && NOTICE_BLOCK_TAGS.has(domNode.name)) {
           return renderNotice(domNode, noticeVariant);
         }
       }

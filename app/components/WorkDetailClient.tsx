@@ -1,11 +1,13 @@
 "use client";
 
+import { createElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 import parse, { Element, DOMNode, domToReact, attributesToProps } from "html-react-parser";
 import LinksCard from "@/app/components/_ui/LinkCard";
 import type { Work } from "@/lib/microcms";
+import type { IconType } from "react-icons";
 import {
   SiNextdotjs,
   SiPython,
@@ -29,9 +31,16 @@ import {
   SiCloudflareworkers,
   SiFastapi,
 } from "react-icons/si";
-import { FaHandshake } from "react-icons/fa";
+import {
+  FaHandshake,
+  FaCalendarAlt,
+  FaInfoCircle,
+  FaRegLightbulb,
+  FaRegCommentDots,
+  FaExclamationTriangle,
+  FaExclamationCircle,
+} from "react-icons/fa";
 import { MdConstruction } from "react-icons/md";
-import { FaCalendarAlt } from "react-icons/fa";
 import { FaLink } from "react-icons/fa6";
 
 const fetcher = async (url: string): Promise<Work | null> => {
@@ -49,6 +58,83 @@ interface WorkDetailClientProps {
   id: string;
   initialWork: Work;
 }
+
+type NoticeVariant = "note" | "tip" | "important" | "warning" | "caution";
+
+const NOTICE_CLASS_MAP: Record<string, NoticeVariant> = {
+  note: "note",
+  "alert-note": "note",
+  "callout-note": "note",
+  tip: "tip",
+  "alert-tip": "tip",
+  "callout-tip": "tip",
+  important: "important",
+  "alert-important": "important",
+  "callout-important": "important",
+  warning: "warning",
+  "alert-warning": "warning",
+  "callout-warning": "warning",
+  caution: "caution",
+  "alert-caution": "caution",
+  "callout-caution": "caution",
+};
+
+const NOTICE_CONFIG: Record<NoticeVariant, { label: string; icon: IconType; colorClass: string; bgClass: string }> = {
+  note: {
+    label: "Note",
+    icon: FaInfoCircle,
+    colorClass: "text-blue-700 border-blue-600",
+    bgClass: "bg-blue-50/70",
+  },
+  tip: {
+    label: "Tip",
+    icon: FaRegLightbulb,
+    colorClass: "text-emerald-700 border-emerald-600",
+    bgClass: "bg-emerald-50/70",
+  },
+  important: {
+    label: "Important",
+    icon: FaRegCommentDots,
+    colorClass: "text-violet-700 border-violet-600",
+    bgClass: "bg-violet-50/70",
+  },
+  warning: {
+    label: "Warning",
+    icon: FaExclamationTriangle,
+    colorClass: "text-amber-700 border-amber-600",
+    bgClass: "bg-amber-50/70",
+  },
+  caution: {
+    label: "Caution",
+    icon: FaExclamationCircle,
+    colorClass: "text-rose-700 border-rose-600",
+    bgClass: "bg-rose-50/70",
+  },
+};
+
+const getNoticeVariant = (className?: string): NoticeVariant | null => {
+  if (!className) return null;
+  const classes = className
+    .toLowerCase()
+    .split(/\s+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  for (const classItem of classes) {
+    if (NOTICE_CLASS_MAP[classItem]) {
+      return NOTICE_CLASS_MAP[classItem];
+    }
+  }
+
+  return null;
+};
+
+const getTextData = (node: DOMNode): string | null => {
+  if (node.type === "text" && "data" in node && typeof node.data === "string") {
+    return node.data;
+  }
+  return null;
+};
 
 export default function WorkDetailClient({ id, initialWork }: WorkDetailClientProps) {
   const { data: work = initialWork } = useSWR<Work | null>(`/api/works/${id}`, fetcher, {
@@ -130,7 +216,8 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
     const href = domNode.attribs.href!;
 
     const getText = (node: DOMNode): string => {
-      if (node.type === "text") return (node as any).data || "";
+      const textData = getTextData(node);
+      if (textData !== null) return textData;
       if (node instanceof Element && node.children) {
         return node.children.map((child) => getText(child as DOMNode)).join("");
       }
@@ -158,10 +245,36 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
     );
   };
 
+  const renderNotice = (domNode: Element, variant: NoticeVariant) => {
+    const { label, icon: Icon, colorClass, bgClass } = NOTICE_CONFIG[variant];
+
+    return (
+      <aside className={`not-prose my-6 rounded-xl border-l-4 px-4 py-4 md:px-6 md:py-5 ${colorClass} ${bgClass}`}>
+        <div className="mb-2 flex items-center gap-2 text-[20px] font-semibold leading-none">
+          <Icon className="shrink-0 text-[20px]" aria-hidden="true" />
+          <span>{label}</span>
+        </div>
+        <div className="text-[16px] leading-8 text-neutral-800 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&_a]:underline [&_a]:underline-offset-4">
+          {domToReact(domNode.children as DOMNode[], parseOptions)}
+        </div>
+      </aside>
+    );
+  };
+
   const parseOptions = {
     replace: (domNode: DOMNode) => {
+      if (domNode instanceof Element) {
+        const noticeVariant = getNoticeVariant(domNode.attribs?.class);
+        if (noticeVariant) {
+          return renderNotice(domNode, noticeVariant);
+        }
+      }
+
       if (domNode instanceof Element && domNode.name === "p" && domNode.children) {
-        const elementChildren = domNode.children.filter((child) => !(child.type === "text" && (child as any).data.trim() === ""));
+        const elementChildren = domNode.children.filter((child) => {
+          const textData = getTextData(child as DOMNode);
+          return !(textData !== null && textData.trim() === "");
+        });
         if (elementChildren.length === 1 && isLinkCard(elementChildren[0] as DOMNode)) {
           return renderLinkCard(elementChildren[0] as Element);
         }
@@ -172,11 +285,10 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
 
       if (domNode instanceof Element && domNode.attribs?.style) {
         const props = attributesToProps(domNode.attribs);
-        const Tag = domNode.name as any;
-        return (
-          <Tag {...props} suppressHydrationWarning>
-            {domToReact(domNode.children as DOMNode[], parseOptions)}
-          </Tag>
+        return createElement(
+          domNode.name,
+          { ...props, suppressHydrationWarning: true },
+          domToReact(domNode.children as DOMNode[], parseOptions),
         );
       }
     },

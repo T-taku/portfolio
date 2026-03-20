@@ -279,7 +279,7 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
         aria-label={label}
       >
         <div className="flex items-center gap-3 md:gap-4">
-          <Icon className="mt-[2px] shrink-0 text-[20px]" aria-hidden="true" />
+          <Icon className="shrink-0 text-[20px]" aria-hidden="true" />
           <div className="flex-1 text-[16px] leading-8 text-neutral-800 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&_a]:underline [&_a]:underline-offset-4">
             {domToReact(domNode.children as DOMNode[], parseOptions)}
           </div>

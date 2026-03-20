@@ -27,6 +27,7 @@ import {
   SiCloudflare,
   SiCloudflarepages,
   SiCloudflareworkers,
+  SiFastapi,
 } from "react-icons/si";
 import { FaHandshake } from "react-icons/fa";
 import { MdConstruction } from "react-icons/md";
@@ -85,6 +86,7 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
     const icons: { [key: string]: React.ReactNode } = {
       "Next.js": <SiNextdotjs />,
       "Python": <SiPython />,
+      "FastAPI": <SiFastapi />,
       "React-router": <SiReactrouter />,
       "Premiere Pro": <SiAdobepremierepro />,
       "Tailwind CSS": <SiTailwindcss />,

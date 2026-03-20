@@ -274,13 +274,15 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
     const { label, icon: Icon, colorClass, bgClass } = NOTICE_CONFIG[variant];
 
     return (
-      <aside className={`not-prose my-6 rounded-xl border-l-4 px-4 py-4 md:px-6 md:py-5 ${colorClass} ${bgClass}`}>
-        <div className="mb-2 flex items-center gap-2 text-[20px] font-semibold leading-none">
-          <Icon className="shrink-0 text-[20px]" aria-hidden="true" />
-          <span>{label}</span>
-        </div>
-        <div className="text-[16px] leading-8 text-neutral-800 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&_a]:underline [&_a]:underline-offset-4">
-          {domToReact(domNode.children as DOMNode[], parseOptions)}
+      <aside
+        className={`not-prose my-6 rounded-xl border-l-4 px-4 py-4 md:px-6 md:py-5 ${colorClass} ${bgClass}`}
+        aria-label={label}
+      >
+        <div className="flex items-center gap-3 md:gap-4">
+          <Icon className="mt-[2px] shrink-0 text-[20px]" aria-hidden="true" />
+          <div className="flex-1 text-[16px] leading-8 text-neutral-800 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&_a]:underline [&_a]:underline-offset-4">
+            {domToReact(domNode.children as DOMNode[], parseOptions)}
+          </div>
         </div>
       </aside>
     );

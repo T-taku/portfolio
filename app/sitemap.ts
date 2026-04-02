@@ -1,9 +1,15 @@
 import { MetadataRoute } from "next";
-import { getWorks } from "@/lib/microcms";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://t-taku.app";
-  const works = await getWorks();
+  let works: Array<{ id: string; worksAt: string }> = [];
+
+  try {
+    const { getWorks } = await import("@/lib/microcms");
+    works = await getWorks();
+  } catch {
+    works = [];
+  }
 
   const worksUrls = works.map((work) => ({
     url: `${baseUrl}/works/${work.id}`,
@@ -16,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "yearly" as const,
       priority: 1,
     },
     ...worksUrls,

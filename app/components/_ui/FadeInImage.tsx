@@ -16,12 +16,7 @@ export default function FadeInImage({ delay = 0, ...props }: FadeInImageProps) {
       transition={{ duration: 1.5, ease: "easeOut", delay: delay }}
       // Prevent long-press/save on mobile and context menu on desktop
       onContextMenu={(e) => e.preventDefault()}
-      style={{
-        WebkitTouchCallout: "none",
-        WebkitUserSelect: "none",
-        userSelect: "none",
-        WebkitUserDrag: "none",
-      }}
+      className="no-save"
     >
       {/* Disable dragging and rely on wrapper to block context menu / touch callout */}
       <Image {...props} draggable={false} />

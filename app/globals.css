@@ -4,3 +4,11 @@
 body {
   font-family: var(--font-cabinet-grotesk), Arial, Helvetica, sans-serif;
 }
+
+/* Prevent long-press save / dragging on images in interactive UI */
+.no-save {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}

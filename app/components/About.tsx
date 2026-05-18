@@ -2,7 +2,8 @@
 
 import { useRef, useState, useEffect, type ComponentProps } from "react";
 import { motion } from "motion/react"
-import { SiNextdotjs, SiPython, SiReactrouter, SiAdobepremierepro, SiTailwindcss, SiFigma, SiCanva } from "react-icons/si";
+import { SiNextdotjs, SiPython, SiReactrouter, SiTailwindcss, SiFigma, SiCanva } from "react-icons/si";
+import { TbBrandAdobePremier } from "react-icons/tb";
 import { GiPhotoCamera } from "react-icons/gi";
 import FadeInImage from "./_ui/FadeInImage";
 import IconBadge from "./_ui/IconBadge";
@@ -50,7 +51,7 @@ export default function About() {
       className: "absolute -left-6 bottom-16 h-[68px] w-[68px] lg:-left-10 lg:bottom-20 lg:h-[90px] lg:w-[90px] z-10",
       props: {
         ringText: "PREMIERE PRO",
-        icon: <SiAdobepremierepro className="h-[28px] w-[28px] lg:h-[38px] lg:w-[38px]" />,
+        icon: <TbBrandAdobePremier className="h-[28px] w-[28px] lg:h-[38px] lg:w-[38px]" />,
         outerColor: "#00005B",
         ringStrokeColor: "rgba(153, 153, 255, 0.95)",
         ringTextColor: "#9999FF",
@@ -94,12 +95,12 @@ export default function About() {
       }
     },
     {
-      id: "CameraA6400",
+      id: "CameraA7iv",
       type: "badge",
       className: "absolute left-2/3 -bottom-4 -translate-x-1/2 z-10 lg:left-3/4 lg:-bottom-6",
       props: {
         icon: <GiPhotoCamera className="h-full w-full" />,
-        label: "α6400",
+        label: "α7 IV",
         customColor: "#000000"
       }
     },
@@ -233,7 +234,6 @@ export default function About() {
                   <IconBadge {...item.props} />
                 )}
 
-                {/* ホログラムオーバーレイ (銀色キラキラ) */}
                 <motion.div
                   className="absolute inset-0 h-full w-full rounded-full pointer-events-none"
                   variants={{
@@ -275,7 +275,7 @@ export default function About() {
             transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
             className="text-[14px] tracking-[5%] lg:text-[16px]"
           >
-            2006年、佐賀県生まれ。広島市立大学 情報科学部 情報工学科在学中。<br />幼少期は、国内・海外問わずたくさん旅行をする家庭で育ちました。また、小学5年生より、ScratchとPythonをはじめ、自分でモノを作る面白さに気づいて今に至ります。現在はPythonや、Next.jsを使用してWebアプリケーションや、Discord Botなどを開発したり、企業でインターン生として勤務したりしています。また、高校在学中には学校のInstagramアカウント運営等を行っていた経験があり、映像制作をすることもあります。
+            2006年、佐賀県生まれ。広島市立大学 情報科学部 情報工学科在学中。<br />幼少期は、国内・海外問わずたくさん旅行をする家庭で育ちました。また、小学5年生より、ScratchとPythonをはじめ、自分でモノを作る面白さに気づいて今に至ります。現在はPythonや、Next.jsを使用してWebアプリケーションや、Discord Botなどを開発したり、企業でインターン生として勤務したりしています。また、高校在学中には学校のInstagramアカウント運営等を行っていた経験があり、映像制作をすることも好きです。
           </motion.p>
         </div>
       </div>

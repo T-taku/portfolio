@@ -6,6 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import useSWR from "swr";
 import WorksCard from "./_ui/WorksCard";
 import type { Work } from "@/lib/microcms";
+import Link from "next/link";
 
 const fetcher = async (url: string): Promise<Work[]> => {
   const response = await fetch(url, { cache: "no-store" });

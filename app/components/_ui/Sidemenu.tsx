@@ -85,7 +85,7 @@ export default function Sidemenu({ isCurrentTop }: SidemenuProps) {
                 <NavLink href="/#about" className="w-fit" onClick={() => setIsOpen(false)}>
                   About
                 </NavLink>
-                <NavLink href="/#works" className="w-fit" onClick={() => setIsOpen(false)}>
+                <NavLink href="/works" className="w-fit" onClick={() => setIsOpen(false)}>
                   Works
                 </NavLink>
                 <NavLink href="/#articles" className="w-fit" onClick={() => setIsOpen(false)}>

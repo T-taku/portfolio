@@ -3,6 +3,8 @@ import Articles from "../components/Articles";
 import Hero from "../components/Hero";
 import Works from "../components/Works";
 
+export const revalidate = 3600; // 1時間ごとにISRで再生成
+
 async function getZennArticles() {
   try {
     const res = await fetch("https://zenn.dev/t_taku0427/feed", { next: { revalidate: 3600 } });

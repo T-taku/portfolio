@@ -33,7 +33,7 @@ async function getZennArticles() {
         });
       }
     }
-    return items.slice(0, 4);
+    return items;
   } catch {
     return [];
   }

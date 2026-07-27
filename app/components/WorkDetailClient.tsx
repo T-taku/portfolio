@@ -374,11 +374,9 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
         </div>
       </section>
 
-      <div className="mx-auto mt-12 max-md:px-[50px] px-[240px] prose:text-black">
-        <div className="flex items-center justify-center">
-          <div className="prose prose-stone prose-sm md:prose-lg max-w-none">
-            {parse(work.content, parseOptions)}
-          </div>
+      <div className="mx-auto mt-12 w-full max-md:px-[50px] px-[240px] prose:text-black">
+        <div className="prose prose-stone prose-sm md:prose-lg max-w-none w-full min-w-0 overflow-x-auto [&_pre]:max-w-full [&_img]:max-w-full [&_iframe]:max-w-full">
+          {parse(work.content, parseOptions)}
         </div>
       </div>
     </div>

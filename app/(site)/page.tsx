@@ -49,7 +49,7 @@ async function getRssArticles(feedUrl: string, hosted: string): Promise<Article[
 export default async function Home() {
   const [zennArticles, sizuArticles] = await Promise.all([
     getRssArticles("https://zenn.dev/t_taku0427/feed", "zenn"),
-    getRssArticles("https://sizu.me/t_taku0427/rss", "sizu"),
+    getRssArticles("https://sizu.me/t_taku0427/rss", "しずかなインターネット"),
   ]);
 
   const allArticles = [

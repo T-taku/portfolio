@@ -5,19 +5,26 @@ import Works from "../components/Works";
 
 export const revalidate = 3600; // 1時間ごとにISRで再生成
 
-async function getZennArticles() {
+type Article = {
+  title: string;
+  hosted: string;
+  date: string;
+  href: string;
+};
+
+async function getRssArticles(feedUrl: string, hosted: string): Promise<Article[]> {
   try {
-    const res = await fetch("https://zenn.dev/t_taku0427/feed", { next: { revalidate: 3600 } });
+    const res = await fetch(feedUrl, { next: { revalidate: 3600 } });
     if (!res.ok) return [];
     const text = await res.text();
 
-    const items = [];
+    const items: Article[] = [];
     const itemRegex = /<item>([\s\S]*?)<\/item>/g;
     let match;
 
     while ((match = itemRegex.exec(text)) !== null) {
       const itemContent = match[1];
-      const titleMatch = itemContent.match(/<title>(.*?)<\/title>/);
+      const titleMatch = itemContent.match(/<title>([\s\S]*?)<\/title>/);
       const linkMatch = itemContent.match(/<link>(.*?)<\/link>/);
       const dateMatch = itemContent.match(/<pubDate>(.*?)<\/pubDate>/);
 
@@ -26,10 +33,10 @@ async function getZennArticles() {
         const formattedDate = `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart(2, "0")}.${date.getDate().toString().padStart(2, "0")}`;
 
         items.push({
-          title: titleMatch[1].replace("<![CDATA[", "").replace("]]>", ""),
-          hosted: "zenn",
+          title: titleMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim(),
+          hosted,
           date: formattedDate,
-          href: linkMatch[1],
+          href: linkMatch[1].trim(),
         });
       }
     }
@@ -40,7 +47,11 @@ async function getZennArticles() {
 }
 
 export default async function Home() {
-  const articles = await getZennArticles();
+  const [zennArticles, sizuArticles] = await Promise.all([
+    getRssArticles("https://zenn.dev/t_taku0427/feed", "zenn"),
+    getRssArticles("https://sizu.me/t_taku0427/rss", "sizu"),
+  ]);
+
   const allArticles = [
     {
       title: "PyCon JP 2025のWebサイトを支えた技術",
@@ -48,7 +59,8 @@ export default async function Home() {
       date: "2025.09.27",
       href: "https://speakerdeck.com/t_taku0427/pycon-jp-2025nouebusaitowozhi-etaji-shu",
     },
-    ...articles,
+    ...zennArticles,
+    ...sizuArticles,
   ];
 
   allArticles.sort((a, b) => b.date.localeCompare(a.date));

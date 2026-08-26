@@ -255,6 +255,7 @@ export default function WorkDetailClient({ id, initialWork }: WorkDetailClientPr
     if (href.includes("zenn.dev")) hosted = "zenn";
     else if (href.includes("speakerdeck.com")) hosted = "Speaker Deck";
     else if (href.includes("github.com")) hosted = "GitHub";
+    else if (href.includes("sizu.me")) hosted = "sizu";
     else {
       try {
         hosted = new URL(href).hostname.replace(/^www\./, "");

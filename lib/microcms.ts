@@ -30,6 +30,7 @@ interface WorkRaw {
   techStack?: string[];
   thumbnail: MicroCMSImage;
   content: string;
+  publishedAt?: string | null;
 }
 
 const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN;
@@ -73,6 +74,10 @@ function normalizeWork(work: WorkRaw, fallbackId: string): Work {
   };
 }
 
+function isPublishedWork(work: WorkRaw): boolean {
+  return Boolean(work.publishedAt);
+}
+
 export async function getWorks(): Promise<Work[]> {
   for (const endpoint of worksEndpoints) {
     try {
@@ -83,7 +88,9 @@ export async function getWorks(): Promise<Work[]> {
         },
       });
 
-      return data.contents.map((work) => normalizeWork(work, endpoint));
+      return data.contents
+        .filter(isPublishedWork)
+        .map((work) => normalizeWork(work, endpoint));
     } catch {
 
       try {
@@ -93,6 +100,10 @@ export async function getWorks(): Promise<Work[]> {
             cache: "no-store",
           },
         });
+
+        if (!isPublishedWork(objectData)) {
+          return [];
+        }
 
         return [normalizeWork(objectData, endpoint)];
       } catch (objectError) {
@@ -118,6 +129,10 @@ export async function getWorkById(id: string): Promise<Work | null> {
         },
       });
 
+      if (!isPublishedWork(detail)) {
+        return null;
+      }
+
       return normalizeWork(detail, id);
     } catch {
 
@@ -130,6 +145,9 @@ export async function getWorkById(id: string): Promise<Work | null> {
         });
 
         if (id === endpoint || id === "works") {
+          if (!isPublishedWork(objectData)) {
+            return null;
+          }
           return normalizeWork(objectData, endpoint);
         }
       } catch (objectError) {

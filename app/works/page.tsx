@@ -5,16 +5,18 @@ import AnimatedText from "../components/_ui/AnimatedText";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Works - つくったモノ",
+    title: {
+      absolute: "Works | Takuma Tateishi",
+    },
     description: "過去の制作物をまとめています",
     openGraph: {
-      title: "Works - つくったモノ",
+      title: "Works | Takuma Tateishi",
       description: "過去の制作物をまとめています",
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Works - つくったモノ",
+      title: "Works | Takuma Tateishi",
       description: "過去の制作物をまとめています",
     },
   };

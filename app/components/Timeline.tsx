@@ -89,7 +89,7 @@ function CategoryFilter({
 	centered: boolean;
 }) {
 	return (
-		<div className={`mb-[28px] flex flex-wrap gap-x-5 gap-y-4 ${centered ? "justify-center" : ""}`}>
+		<div className={`mb-[28px] flex w-full flex-nowrap items-start justify-between gap-1 sm:w-auto sm:gap-x-5 ${centered ? "sm:mx-auto sm:justify-center" : ""}`}>
 			{FILTERS.map((filter, index) => {
 				const isSelected = selected === filter.id;
 				const Icon = filter.icon;
@@ -100,19 +100,20 @@ function CategoryFilter({
 						type="button"
 						onClick={() => onSelect(filter.id)}
 						aria-pressed={isSelected}
-						className="group flex cursor-pointer flex-col items-center gap-2"
+						className="group flex min-w-0 flex-1 cursor-pointer flex-col items-center gap-1.5 sm:flex-none sm:gap-2"
 						style={{ "--theme": filter.color } as React.CSSProperties}
 					>
 						<motion.span
-							className={`flex size-16 items-center justify-center bg-[var(--theme)] ${isSelected ? "p-[3px]" : "p-[2px] group-hover:p-[3px]"}`}
+							className={`flex size-12 items-center justify-center bg-[var(--theme)] sm:size-16 ${isSelected ? "p-[3px]" : "p-[2px] group-hover:p-[3px]"}`}
 							animate={{ borderRadius: liquidBlobKeyframes(index) }}
 							transition={liquidBlobTransition}
 						>
 							<span className={`flex size-full items-center justify-center transition-colors duration-300 [border-radius:inherit] ${isSelected ? "bg-[var(--theme)] text-white" : "bg-white text-[var(--theme)] group-hover:bg-[var(--theme)] group-hover:text-white"}`}>
-								<Icon size={22} aria-hidden />
+								<Icon size={18} className="sm:hidden" aria-hidden />
+								<Icon size={22} className="hidden sm:block" aria-hidden />
 							</span>
 						</motion.span>
-						<span className={`text-[13px] tracking-[0.04em] ${isSelected ? "font-bold text-black" : "text-[#9A9A9A]"}`}>
+						<span className={`whitespace-nowrap text-[10px] tracking-[0.02em] sm:text-[13px] sm:tracking-[0.04em] ${isSelected ? "font-bold text-black" : "text-[#9A9A9A]"}`}>
 							{filter.label}
 						</span>
 					</button>

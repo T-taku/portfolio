@@ -5,16 +5,18 @@ import Timeline from "../components/Timeline";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Timeline - あゆみ",
+    title: {
+      absolute: "Timeline | Takuma Tateishi",
+    },
     description: "これまでのあゆみをまとめています",
     openGraph: {
-      title: "Timeline - あゆみ",
+      title: "Timeline | Takuma Tateishi",
       description: "これまでのあゆみをまとめています",
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Timeline - あゆみ",
+      title: "Timeline | Takuma Tateishi",
       description: "これまでのあゆみをまとめています",
     },
   };

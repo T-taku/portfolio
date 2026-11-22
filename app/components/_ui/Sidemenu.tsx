@@ -42,7 +42,7 @@ const NavLink = ({ href, children, className, onClick }: { href: string; childre
 export default function Sidemenu({ isCurrentTop }: SidemenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const isWorksRoute = pathname.startsWith("/works");
+  const isStandalonePage = pathname.startsWith("/works") || pathname.startsWith("/timeline");
 
   return (
     <>
@@ -51,14 +51,14 @@ export default function Sidemenu({ isCurrentTop }: SidemenuProps) {
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label="メニューを開く"
         aria-expanded={isOpen}
-        className={`fixed top-0 z-[2100] flex h-16 w-16 items-center justify-center bg-black ${isWorksRoute ? "" : "lg:hidden"}`}
+        className={`fixed top-0 z-[2100] flex h-16 w-16 items-center justify-center bg-black ${isStandalonePage ? "" : "lg:hidden"}`}
       >
         <HiOutlineMenu className="h-7 w-7 text-white" />
       </button>
 
       <AnimatePresence>
         {isOpen && (
-          <div className={`fixed inset-0 z-[2000] ${isWorksRoute ? "" : "lg:hidden"}`} onClick={() => setIsOpen(false)}>
+          <div className={`fixed inset-0 z-[2000] ${isStandalonePage ? "" : "lg:hidden"}`} onClick={() => setIsOpen(false)}>
             <motion.div
               className="absolute left-0 top-0 origin-top-left bg-black "
               initial={{ width: "4rem", height: "4rem" }}
@@ -84,6 +84,9 @@ export default function Sidemenu({ isCurrentTop }: SidemenuProps) {
                   </NavLink>}
                 <NavLink href="/#about" className="w-fit" onClick={() => setIsOpen(false)}>
                   About
+                </NavLink>
+                <NavLink href="/timeline" className="w-fit" onClick={() => setIsOpen(false)}>
+                  Timeline
                 </NavLink>
                 <NavLink href="/works" className="w-fit" onClick={() => setIsOpen(false)}>
                   Works
@@ -118,7 +121,7 @@ export default function Sidemenu({ isCurrentTop }: SidemenuProps) {
         )}
       </AnimatePresence>
 
-      <div className={`fixed top-1/2 left-[70px] hidden -translate-y-1/2 ${isWorksRoute ? "" : "lg:block"}`}>
+      <div className={`fixed top-1/2 left-[70px] hidden -translate-y-1/2 ${isStandalonePage ? "" : "lg:block"}`}>
         <div className="flex flex-col space-y-[5px] text-[24px] font-bold">
           {isCurrentTop ? (
             <NavLink href="#top">Top</NavLink>
@@ -126,6 +129,7 @@ export default function Sidemenu({ isCurrentTop }: SidemenuProps) {
             <></>
           )}
           <NavLink href="/#about">About</NavLink>
+          <NavLink href="/#timeline">Timeline</NavLink>
           <NavLink href="/#works">Works</NavLink>
           <NavLink href="/#articles">Articles</NavLink>
         </div>

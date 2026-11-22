@@ -78,6 +78,70 @@ function isPublishedWork(work: WorkRaw): boolean {
   return Boolean(work.publishedAt);
 }
 
+export type TimelineCategory = "release" | "talk" | "award" | "other";
+
+export interface TimelineItem {
+  id: string;
+  title: string;
+  description?: string;
+  url?: string;
+  thumbnail?: MicroCMSImage;
+  date: string;
+  category: TimelineCategory;
+}
+
+interface TimelineRaw {
+  id: string;
+  title: string;
+  description?: string;
+  url?: string;
+  thumbnail?: MicroCMSImage;
+  date: string;
+  category?: string | string[];
+  publishedAt?: string | null;
+}
+
+const TIMELINE_CATEGORIES: TimelineCategory[] = ["release", "talk", "award", "other"];
+
+function normalizeTimelineCategory(category: TimelineRaw["category"]): TimelineCategory {
+  const value = Array.isArray(category) ? category[0] : category;
+  if (value && TIMELINE_CATEGORIES.includes(value as TimelineCategory)) {
+    return value as TimelineCategory;
+  }
+  return "other";
+}
+
+export async function getTimeline(): Promise<TimelineItem[]> {
+  const endpoint = process.env.MICROCMS_TIMELINE_ENDPOINT?.trim() || "timeline";
+
+  try {
+    const data = await client.getList<TimelineRaw>({
+      endpoint,
+      queries: {
+        orders: "-date",
+        limit: 100,
+      },
+      customRequestInit: {
+        cache: "no-store",
+      },
+    });
+
+    return data.contents
+      .filter((item) => Boolean(item.publishedAt))
+      .map((item) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description?.trim() || undefined,
+        url: item.url?.trim() || undefined,
+        thumbnail: item.thumbnail?.url ? item.thumbnail : undefined,
+        date: item.date,
+        category: normalizeTimelineCategory(item.category),
+      }));
+  } catch {
+    return [];
+  }
+}
+
 export async function getWorks(): Promise<Work[]> {
   for (const endpoint of worksEndpoints) {
     try {

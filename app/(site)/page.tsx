@@ -1,7 +1,9 @@
 import About from "../components/About";
 import Articles from "../components/Articles";
 import Hero from "../components/Hero";
+import Timeline from "../components/Timeline";
 import Works from "../components/Works";
+import { getTimeline } from "@/lib/microcms";
 
 export const revalidate = 3600; // 1時間ごとにISRで再生成
 
@@ -47,9 +49,10 @@ async function getRssArticles(feedUrl: string, hosted: string): Promise<Article[
 }
 
 export default async function Home() {
-  const [zennArticles, sizuArticles] = await Promise.all([
+  const [zennArticles, sizuArticles, timeline] = await Promise.all([
     getRssArticles("https://zenn.dev/t_taku0427/feed", "zenn"),
     getRssArticles("https://sizu.me/t_taku0427/rss", "しずかなインターネット"),
+    getTimeline(),
   ]);
 
   const allArticles = [
@@ -69,6 +72,7 @@ export default async function Home() {
     <div className="flex min-h-screen w-full flex-col max-lg:gap-[60px] px-[20px] lg:px-[70px]">
       <Hero />
       <About />
+      <Timeline items={timeline} />
       <Works />
       <Articles articles={allArticles} />
     </div>

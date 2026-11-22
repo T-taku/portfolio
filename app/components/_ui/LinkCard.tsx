@@ -1,22 +1,7 @@
 import Link from "next/link";
 import { SiZenn, SiSpeakerdeck, SiGithub } from "react-icons/si";
 import { FaExternalLinkAlt } from "react-icons/fa";
-
-const FAVICON_SOURCES: Record<string, string> = {
-  sizu: "https://static.sizu.me/images/logo-favicon.png",
-};
-
-function getFaviconSrc(hosted: string | undefined, href: string): string | null {
-  if (hosted && FAVICON_SOURCES[hosted]) {
-    return FAVICON_SOURCES[hosted];
-  }
-
-  try {
-    return `https://www.google.com/s2/favicons?domain=${new URL(href).hostname}&sz=64`;
-  } catch {
-    return null;
-  }
-}
+import { getFaviconSrc } from "@/lib/favicon";
 
 function HostIcon({ hosted, href }: { hosted?: string; href: string }) {
   if (hosted === "zenn") {

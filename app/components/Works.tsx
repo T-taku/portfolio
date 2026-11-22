@@ -5,8 +5,8 @@ import { motion } from "motion/react"
 import useEmblaCarousel from "embla-carousel-react";
 import useSWR from "swr";
 import WorksCard from "./_ui/WorksCard";
+import SeeMoreLink from "./_ui/SeeMoreLink";
 import type { Work } from "@/lib/microcms";
-import Link from "next/link";
 
 const fetcher = async (url: string): Promise<Work[]> => {
   const response = await fetch(url, { cache: "no-store" });
@@ -87,6 +87,9 @@ export default function Works() {
               ))}
             </div>
           </div>
+        </div>
+        <div className="mt-[36px] flex justify-end">
+          <SeeMoreLink href="/works" />
         </div>
       </div>
       <div className="pointer-events-none absolute right-0 top-[calc(50%+40px)] z-40 hidden h-[360px] w-[150px] -translate-y-1/2 bg-gradient-to-l from-white to-transparent lg:block" />

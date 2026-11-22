@@ -115,7 +115,7 @@ export default function Timeline({
 				</motion.h1>
 			)}
 
-			<ul>
+			<ul className={full ? "mx-auto w-full max-w-[596px] lg:max-w-[618px]" : undefined}>
 				{groupByYear(visibleItems).map((group, groupIndex, groups) => (
 					<li key={group.year || "unknown"}>
 						{group.year && (

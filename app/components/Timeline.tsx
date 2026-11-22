@@ -3,13 +3,19 @@
 import { useState, type ComponentType } from "react";
 import { motion } from "motion/react";
 import { FiArrowDownCircle } from "react-icons/fi";
-import { LuLibrary, LuMic, LuPartyPopper, LuSparkles, LuTrophy } from "react-icons/lu";
+import {
+	LuLibrary,
+	LuMic,
+	LuPartyPopper,
+	LuSparkles,
+	LuTrophy,
+} from "react-icons/lu";
 import { liquidBlobKeyframes, liquidBlobTransition } from "@/lib/blob";
 import type { TimelineCategory, TimelineItem } from "@/lib/microcms";
 import SeeMoreLink from "./_ui/SeeMoreLink";
 import TimelineCard from "./_ui/TimelineCard";
 
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 6;
 
 function getTimelineYear(date: string): string {
 	const parsed = new Date(date);
@@ -44,8 +50,11 @@ function groupByYear(
 function softenLineColor(hex: string): string {
 	const ratio = 0.32;
 	const value = hex.replace("#", "");
-	const channels = [0, 2, 4].map((start) => parseInt(value.slice(start, start + 2), 16));
-	const mix = (channel: number) => Math.round(channel * ratio + 255 * (1 - ratio));
+	const channels = [0, 2, 4].map((start) =>
+		parseInt(value.slice(start, start + 2), 16),
+	);
+	const mix = (channel: number) =>
+		Math.round(channel * ratio + 255 * (1 - ratio));
 	const [red, green, blue] = channels.map(mix);
 	return `rgb(${red}, ${green}, ${blue})`;
 }
@@ -53,7 +62,11 @@ function softenLineColor(hex: string): string {
 const CATEGORY_STYLE: Record<
 	TimelineCategory,
 	{
-		icon: ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>;
+		icon: ComponentType<{
+			size?: number;
+			className?: string;
+			"aria-hidden"?: boolean;
+		}>;
 		color: string;
 		label: string;
 	}
@@ -67,7 +80,11 @@ const CATEGORY_STYLE: Record<
 const FILTERS: {
 	id: "all" | "release" | "talk" | "award" | "other";
 	label: string;
-	icon: ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>;
+	icon: ComponentType<{
+		size?: number;
+		className?: string;
+		"aria-hidden"?: boolean;
+	}>;
 	color: string;
 }[] = [
 	{ id: "all", label: "All", icon: LuLibrary, color: "#222222" },
@@ -89,7 +106,9 @@ function CategoryFilter({
 	centered: boolean;
 }) {
 	return (
-		<div className={`mb-[28px] flex w-full flex-nowrap items-start justify-between gap-1 sm:w-auto sm:gap-x-5 ${centered ? "sm:mx-auto sm:justify-center" : ""}`}>
+		<div
+			className={`mb-[28px] flex w-full flex-nowrap items-start justify-between gap-1 sm:w-auto sm:gap-x-5 ${centered ? "sm:mx-auto sm:justify-center" : ""}`}
+		>
 			{FILTERS.map((filter, index) => {
 				const isSelected = selected === filter.id;
 				const Icon = filter.icon;
@@ -108,12 +127,16 @@ function CategoryFilter({
 							animate={{ borderRadius: liquidBlobKeyframes(index) }}
 							transition={liquidBlobTransition}
 						>
-							<span className={`flex size-full items-center justify-center transition-colors duration-300 [border-radius:inherit] ${isSelected ? "bg-[var(--theme)] text-white" : "bg-white text-[var(--theme)] group-hover:bg-[var(--theme)] group-hover:text-white"}`}>
+							<span
+								className={`flex size-full items-center justify-center transition-colors duration-300 [border-radius:inherit] ${isSelected ? "bg-[var(--theme)] text-white" : "bg-white text-[var(--theme)] group-hover:bg-[var(--theme)] group-hover:text-white"}`}
+							>
 								<Icon size={18} className="sm:hidden" aria-hidden />
 								<Icon size={22} className="hidden sm:block" aria-hidden />
 							</span>
 						</motion.span>
-						<span className={`whitespace-nowrap text-[10px] tracking-[0.02em] sm:text-[13px] sm:tracking-[0.04em] ${isSelected ? "font-bold text-black" : "text-[#9A9A9A]"}`}>
+						<span
+							className={`whitespace-nowrap text-[10px] tracking-[0.02em] sm:text-[13px] sm:tracking-[0.04em] ${isSelected ? "font-bold text-black" : "text-[#9A9A9A]"}`}
+						>
 							{filter.label}
 						</span>
 					</button>
@@ -158,8 +181,10 @@ export default function Timeline({
 		return null;
 	}
 
-	const filteredItems = filter === "all" ? items : items.filter((item) => item.category === filter);
-	const visibleItems = full || expanded ? filteredItems : filteredItems.slice(0, INITIAL_COUNT);
+	const filteredItems =
+		filter === "all" ? items : items.filter((item) => item.category === filter);
+	const visibleItems =
+		full || expanded ? filteredItems : filteredItems.slice(0, INITIAL_COUNT);
 	const hasMore = !full && !expanded && filteredItems.length > INITIAL_COUNT;
 
 	function selectFilter(next: TimelineCategory | "all") {
@@ -191,31 +216,42 @@ export default function Timeline({
 				</motion.h1>
 			)}
 
-			<CategoryFilter selected={filter} onSelect={selectFilter} centered={full} />
+			<CategoryFilter
+				selected={filter}
+				onSelect={selectFilter}
+				centered={full}
+			/>
 
 			{filteredItems.length === 0 ? (
-				<p className={`text-[14px] text-[#888] ${full ? "text-center" : ""}`}>このカテゴリはまだありません</p>
+				<p className={`text-[14px] text-[#888] ${full ? "text-center" : ""}`}>
+					このカテゴリはまだありません
+				</p>
 			) : null}
 
-			<ul className={full ? "mx-auto w-full max-w-[596px] lg:max-w-[618px]" : undefined}>
+			<ul
+				className={
+					full ? "mx-auto w-full max-w-[596px] lg:max-w-[618px]" : undefined
+				}
+			>
 				{groupByYear(visibleItems).map((group, groupIndex, groups) => (
 					<li key={group.year || "unknown"}>
 						{group.year && (
-							<div className="flex items-center gap-4 pb-[28px] lg:gap-[30px]">
-								<div className="w-10 shrink-0 lg:w-12" />
-								<p className="text-[20px] font-bold lg:text-[24px]">
-									{group.year}
-								</p>
-							</div>
+							<p className="pb-[28px] text-[20px] font-bold lg:text-[24px]">
+								{group.year}
+							</p>
 						)}
 						<ul>
 							{group.items.map((item, index) => {
 								const isLastInYear = index === group.items.length - 1;
 								const isLastGroup = groupIndex === groups.length - 1;
-								const fromColor = softenLineColor(CATEGORY_STYLE[item.category].color);
+								const fromColor = softenLineColor(
+									CATEGORY_STYLE[item.category].color,
+								);
 								const toColor = isLastInYear
 									? fromColor
-									: softenLineColor(CATEGORY_STYLE[group.items[index + 1].category].color);
+									: softenLineColor(
+											CATEGORY_STYLE[group.items[index + 1].category].color,
+										);
 
 								return (
 									<motion.li

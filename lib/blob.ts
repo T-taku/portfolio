@@ -13,3 +13,26 @@ export function rotateBlobKeyframes(index: number): string[] {
   const rotated = [...BLOB_RADIUS_FRAMES.slice(offset), ...BLOB_RADIUS_FRAMES.slice(0, offset)];
   return [...rotated, rotated[0]];
 }
+
+const LIQUID_RADIUS_FRAMES = [
+  "64% 36% 58% 42% / 40% 60% 36% 64%",
+  "38% 62% 44% 56% / 62% 38% 60% 40%",
+  "56% 44% 36% 64% / 42% 58% 66% 34%",
+  "66% 34% 60% 40% / 58% 42% 38% 62%",
+  "36% 64% 52% 48% / 66% 34% 48% 52%",
+  "60% 40% 66% 34% / 36% 64% 58% 42%",
+  "42% 58% 38% 62% / 54% 46% 34% 66%",
+  "34% 66% 62% 38% / 60% 40% 64% 36%",
+];
+
+export function liquidBlobKeyframes(index: number): string[] {
+  const offset = index % LIQUID_RADIUS_FRAMES.length;
+  const rotated = [...LIQUID_RADIUS_FRAMES.slice(offset), ...LIQUID_RADIUS_FRAMES.slice(0, offset)];
+  return [...rotated, rotated[0]];
+}
+
+export const liquidBlobTransition = {
+  duration: 6.5,
+  repeat: Infinity,
+  ease: [0.45, 0.05, 0.55, 0.95] as [number, number, number, number],
+};

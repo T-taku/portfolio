@@ -3,8 +3,8 @@
 import { useState, type ComponentType } from "react";
 import { motion } from "motion/react";
 import { FiArrowDownCircle } from "react-icons/fi";
-import { LuMic, LuPartyPopper, LuSparkles, LuTrophy } from "react-icons/lu";
-import { rotateBlobKeyframes } from "@/lib/blob";
+import { LuLibrary, LuMic, LuPartyPopper, LuSparkles, LuTrophy } from "react-icons/lu";
+import { liquidBlobKeyframes, liquidBlobTransition } from "@/lib/blob";
 import type { TimelineCategory, TimelineItem } from "@/lib/microcms";
 import SeeMoreLink from "./_ui/SeeMoreLink";
 import TimelineCard from "./_ui/TimelineCard";
@@ -41,18 +41,86 @@ function groupByYear(
 	return groups;
 }
 
+function softenLineColor(hex: string): string {
+	const ratio = 0.32;
+	const value = hex.replace("#", "");
+	const channels = [0, 2, 4].map((start) => parseInt(value.slice(start, start + 2), 16));
+	const mix = (channel: number) => Math.round(channel * ratio + 255 * (1 - ratio));
+	const [red, green, blue] = channels.map(mix);
+	return `rgb(${red}, ${green}, ${blue})`;
+}
+
 const CATEGORY_STYLE: Record<
 	TimelineCategory,
 	{
 		icon: ComponentType<{ size?: number; "aria-hidden"?: boolean }>;
 		color: string;
+		label: string;
 	}
 > = {
-	release: { icon: LuPartyPopper, color: "#7BA05B" },
-	talk: { icon: LuMic, color: "#4A90C2" },
-	award: { icon: LuTrophy, color: "#D4A33B" },
-	other: { icon: LuSparkles, color: "#888888" },
+	release: { icon: LuPartyPopper, color: "#7BA05B", label: "Release" },
+	talk: { icon: LuMic, color: "#4A90C2", label: "Talk" },
+	award: { icon: LuTrophy, color: "#D4A33B", label: "Award" },
+	other: { icon: LuSparkles, color: "#888888", label: "Other" },
 };
+
+const FILTERS: {
+	id: "all" | "release" | "talk" | "award" | "other";
+	label: string;
+	icon: ComponentType<{ size?: number; "aria-hidden"?: boolean }>;
+	color: string;
+}[] = [
+	{ id: "all", label: "All", icon: LuLibrary, color: "#222222" },
+	...(["release", "talk", "award", "other"] as const).map((id) => ({
+		id,
+		label: CATEGORY_STYLE[id].label,
+		icon: CATEGORY_STYLE[id].icon,
+		color: CATEGORY_STYLE[id].color,
+	})),
+];
+
+function CategoryFilter({
+	selected,
+	onSelect,
+	centered,
+}: {
+	selected: TimelineCategory | "all";
+	onSelect: (id: TimelineCategory | "all") => void;
+	centered: boolean;
+}) {
+	return (
+		<div className={`mb-[28px] flex flex-wrap gap-x-5 gap-y-4 ${centered ? "justify-center" : ""}`}>
+			{FILTERS.map((filter, index) => {
+				const isSelected = selected === filter.id;
+				const Icon = filter.icon;
+
+				return (
+					<button
+						key={filter.id}
+						type="button"
+						onClick={() => onSelect(filter.id)}
+						aria-pressed={isSelected}
+						className="group flex cursor-pointer flex-col items-center gap-2"
+						style={{ "--theme": filter.color } as React.CSSProperties}
+					>
+						<motion.span
+							className={`flex size-16 items-center justify-center bg-[var(--theme)] ${isSelected ? "p-[3px]" : "p-[2px] group-hover:p-[3px]"}`}
+							animate={{ borderRadius: liquidBlobKeyframes(index) }}
+							transition={liquidBlobTransition}
+						>
+							<span className={`flex size-full items-center justify-center transition-colors duration-300 [border-radius:inherit] ${isSelected ? "bg-[var(--theme)] text-white" : "bg-white text-[var(--theme)] group-hover:bg-[var(--theme)] group-hover:text-white"}`}>
+								<Icon size={22} aria-hidden />
+							</span>
+						</motion.span>
+						<span className={`text-[13px] tracking-[0.04em] ${isSelected ? "font-bold text-black" : "text-[#9A9A9A]"}`}>
+							{filter.label}
+						</span>
+					</button>
+				);
+			})}
+		</div>
+	);
+}
 
 function BlobIcon({
 	category,
@@ -67,8 +135,8 @@ function BlobIcon({
 		<motion.span
 			className="flex size-10 shrink-0 items-center justify-center text-white lg:size-12"
 			style={{ backgroundColor: color }}
-			animate={{ borderRadius: rotateBlobKeyframes(index) }}
-			transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
+			animate={{ borderRadius: liquidBlobKeyframes(index) }}
+			transition={liquidBlobTransition}
 		>
 			<Icon size={20} aria-hidden />
 		</motion.span>
@@ -83,13 +151,20 @@ export default function Timeline({
 	full?: boolean;
 }) {
 	const [expanded, setExpanded] = useState(full);
+	const [filter, setFilter] = useState<TimelineCategory | "all">("all");
 
 	if (items.length === 0) {
 		return null;
 	}
 
-	const visibleItems = full || expanded ? items : items.slice(0, INITIAL_COUNT);
-	const hasMore = !full && items.length > INITIAL_COUNT;
+	const filteredItems = filter === "all" ? items : items.filter((item) => item.category === filter);
+	const visibleItems = full || expanded ? filteredItems : filteredItems.slice(0, INITIAL_COUNT);
+	const hasMore = !full && !expanded && filteredItems.length > INITIAL_COUNT;
+
+	function selectFilter(next: TimelineCategory | "all") {
+		setFilter(next);
+		setExpanded(true);
+	}
 
 	return (
 		<section
@@ -115,6 +190,12 @@ export default function Timeline({
 				</motion.h1>
 			)}
 
+			<CategoryFilter selected={filter} onSelect={selectFilter} centered={full} />
+
+			{filteredItems.length === 0 ? (
+				<p className={`text-[14px] text-[#888] ${full ? "text-center" : ""}`}>このカテゴリはまだありません</p>
+			) : null}
+
 			<ul className={full ? "mx-auto w-full max-w-[596px] lg:max-w-[618px]" : undefined}>
 				{groupByYear(visibleItems).map((group, groupIndex, groups) => (
 					<li key={group.year || "unknown"}>
@@ -130,6 +211,10 @@ export default function Timeline({
 							{group.items.map((item, index) => {
 								const isLastInYear = index === group.items.length - 1;
 								const isLastGroup = groupIndex === groups.length - 1;
+								const fromColor = softenLineColor(CATEGORY_STYLE[item.category].color);
+								const toColor = isLastInYear
+									? fromColor
+									: softenLineColor(CATEGORY_STYLE[group.items[index + 1].category].color);
 
 								return (
 									<motion.li
@@ -147,7 +232,16 @@ export default function Timeline({
 										<div className="flex flex-col items-center self-stretch">
 											<BlobIcon category={item.category} index={index} />
 											{!isLastInYear && (
-												<span className="mt-3 w-[2px] flex-1 bg-[#D6E4C8]" />
+												<span
+													className="mb-[15px] mt-[15px] w-[2px] flex-1"
+													style={
+														fromColor === toColor
+															? { backgroundColor: fromColor }
+															: {
+																	backgroundImage: `linear-gradient(to bottom, ${fromColor}, ${toColor})`,
+																}
+													}
+												/>
 											)}
 										</div>
 										<div

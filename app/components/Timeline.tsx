@@ -53,7 +53,7 @@ function softenLineColor(hex: string): string {
 const CATEGORY_STYLE: Record<
 	TimelineCategory,
 	{
-		icon: ComponentType<{ size?: number; "aria-hidden"?: boolean }>;
+		icon: ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>;
 		color: string;
 		label: string;
 	}
@@ -67,7 +67,7 @@ const CATEGORY_STYLE: Record<
 const FILTERS: {
 	id: "all" | "release" | "talk" | "award" | "other";
 	label: string;
-	icon: ComponentType<{ size?: number; "aria-hidden"?: boolean }>;
+	icon: ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>;
 	color: string;
 }[] = [
 	{ id: "all", label: "All", icon: LuLibrary, color: "#222222" },

@@ -72,7 +72,7 @@ export default function Timeline({ items, full = false }: { items: TimelineItem[
   const hasMore = !full && items.length > INITIAL_COUNT;
 
   return (
-    <section id="timeline" className={full ? "relative flex w-full flex-col gap-[13px]" : "relative mx-auto flex w-full max-w-[1200px] flex-col justify-center gap-[13px] lg:pt-[max(0px,calc((100vh-433px)/2))]"}>
+    <section id="timeline" className={full ? "relative flex w-full flex-col gap-[13px]" : "relative mx-auto flex w-full max-w-[1200px] flex-col justify-center gap-[13px] lg:pt-[140px]"}>
       {!full && <motion.h1
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

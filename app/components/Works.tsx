@@ -39,7 +39,7 @@ export default function Works() {
   }, [emblaApi]);
 
   return (
-    <section id="works" className="relative flex max-lg:mb-[40px] lg:min-h-screen w-full flex-col justify-center gap-[13px] overflow-hidden lg:mr-[-70px] lg:w-[calc(100%+70px)]">
+    <section id="works" className="relative flex w-full flex-col justify-center gap-[13px] overflow-hidden max-lg:mb-[40px] lg:mr-[-70px] lg:w-[calc(100%+70px)] lg:py-[80px]">
       <div className="relative z-20 mx-auto w-full max-w-[1200px] lg:pr-[70px]">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

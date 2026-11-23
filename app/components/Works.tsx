@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "motion/react"
 import useEmblaCarousel from "embla-carousel-react";
 import useSWR from "swr";
@@ -28,7 +28,23 @@ export default function Works() {
   const sortedWorks = [...works].sort((a, b) => new Date(b.worksAt).getTime() - new Date(a.worksAt).getTime());
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [fadeTop, setFadeTop] = useState(0);
   const slides = [...sortedWorks, ...sortedWorks];
+
+  useEffect(() => {
+    const measure = () => {
+      const section = sectionRef.current;
+      const track = trackRef.current;
+      if (!section || !track) return;
+      setFadeTop(track.getBoundingClientRect().top - section.getBoundingClientRect().top);
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [sortedWorks.length]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -39,7 +55,7 @@ export default function Works() {
   }, [emblaApi]);
 
   return (
-    <section id="works" className="relative flex w-full flex-col justify-center gap-[13px] overflow-hidden max-lg:mb-[40px] lg:mr-[-70px] lg:w-[calc(100%+70px)] lg:py-[80px]">
+    <section ref={sectionRef} id="works" className="relative flex w-full flex-col justify-center gap-[13px] overflow-hidden max-lg:mb-[40px] lg:mr-[-70px] lg:w-[calc(100%+70px)] lg:py-[80px]">
       <div className="relative z-20 mx-auto w-full max-w-[1200px] lg:pr-[70px]">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -71,7 +87,7 @@ export default function Works() {
             </button>
           </div>
         </motion.h1>
-        <div className="lg:-mr-[50vw] lg:w-[calc(100%+50vw)]">
+        <div ref={trackRef} className="lg:-mr-[50vw] lg:w-[calc(100%+50vw)]">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {slides.map((work, index) => (
@@ -92,7 +108,10 @@ export default function Works() {
           <SeeMoreLink href="/works" />
         </div>
       </div>
-      <div className="pointer-events-none absolute right-0 top-[calc(50%+40px)] z-40 hidden h-[360px] w-[150px] -translate-y-1/2 bg-gradient-to-l from-white to-transparent lg:block" />
+      <div
+        className="pointer-events-none absolute right-0 z-40 hidden h-[300px] w-[150px] bg-gradient-to-l from-white to-transparent lg:block"
+        style={{ top: fadeTop }}
+      />
     </section>
   );
 }
